@@ -1,1717 +1,963 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAY ANALYTICS PRIVATE LIMITED - IT Consultancy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* 3D Interactive IT Elements */
-        .server-3d {
-            width: 100px;
-            height: 120px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: rotateServer 12s infinite linear;
-        }
-        
-        .server-face {
-            position: absolute;
-            width: 100px;
-            height: 120px;
-            border: 2px solid rgba(59, 130, 246, 0.4);
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2));
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .server-face.front { 
-            transform: rotateY(0deg) translateZ(50px);
-            background-image: 
-                linear-gradient(90deg, rgba(255,255,255,0.1) 10px, transparent 10px),
-                linear-gradient(90deg, rgba(255,255,255,0.1) 20px, transparent 20px),
-                linear-gradient(90deg, rgba(255,255,255,0.1) 30px, transparent 30px);
-            background-size: 100% 15px;
-            background-repeat: repeat-y;
-        }
-        .server-face.back { transform: rotateY(180deg) translateZ(50px); }
-        .server-face.right { transform: rotateY(90deg) translateZ(50px); }
-        .server-face.left { transform: rotateY(-90deg) translateZ(50px); }
-        .server-face.top { transform: rotateX(90deg) translateZ(60px); width: 100px; height: 100px; }
-        .server-face.bottom { transform: rotateX(-90deg) translateZ(60px); width: 100px; height: 100px; }
-        
-        @keyframes rotateServer {
-            0% { transform: rotateX(0deg) rotateY(0deg); }
-            100% { transform: rotateX(360deg) rotateY(360deg); }
-        }
-        
-        .floating-3d {
-            animation: float3d 6s ease-in-out infinite;
-            transform-style: preserve-3d;
-        }
-        
-        @keyframes float3d {
-            0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
-            25% { transform: translateY(-20px) rotateX(5deg) rotateY(90deg); }
-            50% { transform: translateY(-10px) rotateX(-5deg) rotateY(180deg); }
-            75% { transform: translateY(-15px) rotateX(5deg) rotateY(270deg); }
-        }
-        
-        .database-3d {
-            width: 80px;
-            height: 100px;
-            position: relative;
-            animation: databaseFloat 8s ease-in-out infinite;
-            transform-style: preserve-3d;
-        }
-        
-        .database-cylinder {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #10b981, #059669);
-            border-radius: 50%;
-            position: relative;
-            box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
-        }
-        
-        .database-cylinder::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 0;
-            width: 80px;
-            height: 20px;
-            background: linear-gradient(135deg, #34d399, #10b981);
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
-        }
-        
-        .database-cylinder::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 80px;
-            height: 20px;
-            background: linear-gradient(135deg, #059669, #047857);
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(5, 150, 105, 0.4);
-        }
-        
-        .database-lines {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-        }
-        
-        .database-lines::before,
-        .database-lines::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 1px;
-        }
-        
-        .database-lines::before {
-            top: 20px;
-        }
-        
-        .database-lines::after {
-            top: 35px;
-        }
-        
-        @keyframes databaseFloat {
-            0%, 100% { transform: rotateY(0deg) rotateX(0deg) scale(1); }
-            25% { transform: rotateY(90deg) rotateX(10deg) scale(1.05); }
-            50% { transform: rotateY(180deg) rotateX(0deg) scale(1); }
-            75% { transform: rotateY(270deg) rotateX(-10deg) scale(1.05); }
-        }
-        
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        .network-3d {
-            width: 100px;
-            height: 100px;
-            position: relative;
-            animation: networkPulse 10s linear infinite;
-            transform-style: preserve-3d;
-        }
-        
-        .network-center {
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(135deg, #9333ea, #7c3aed);
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 20px rgba(147, 51, 234, 0.6);
-        }
-        
-        .network-node {
-            width: 15px;
-            height: 15px;
-            background: linear-gradient(135deg, #06b6d4, #0891b2);
-            border-radius: 50%;
-            position: absolute;
-            box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
-        }
-        
-        .network-node:nth-child(2) {
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: nodeFloat1 3s ease-in-out infinite;
-        }
-        
-        .network-node:nth-child(3) {
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            animation: nodeFloat2 3s ease-in-out infinite 1s;
-        }
-        
-        .network-node:nth-child(4) {
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: nodeFloat3 3s ease-in-out infinite 2s;
-        }
-        
-        .network-node:nth-child(5) {
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
-            animation: nodeFloat4 3s ease-in-out infinite 0.5s;
-        }
-        
-        .network-connection {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, rgba(147, 51, 234, 0.6), rgba(6, 182, 212, 0.6));
-            transform-origin: left center;
-        }
-        
-        .connection-1 {
-            top: 35px;
-            left: 50%;
-            width: 35px;
-            transform: rotate(-45deg);
-            animation: connectionPulse 2s ease-in-out infinite;
-        }
-        
-        .connection-2 {
-            top: 50%;
-            left: 65%;
-            width: 25px;
-            transform: rotate(0deg);
-            animation: connectionPulse 2s ease-in-out infinite 0.5s;
-        }
-        
-        .connection-3 {
-            bottom: 35px;
-            left: 50%;
-            width: 35px;
-            transform: rotate(45deg);
-            animation: connectionPulse 2s ease-in-out infinite 1s;
-        }
-        
-        .connection-4 {
-            top: 50%;
-            left: 25%;
-            width: 25px;
-            transform: rotate(180deg);
-            animation: connectionPulse 2s ease-in-out infinite 1.5s;
-        }
-        
-        @keyframes networkPulse {
-            0% { transform: rotateY(0deg) rotateZ(0deg); }
-            100% { transform: rotateY(360deg) rotateZ(360deg); }
-        }
-        
-        @keyframes nodeFloat1 {
-            0%, 100% { transform: translateX(-50%) translateY(0px); }
-            50% { transform: translateX(-50%) translateY(-5px); }
-        }
-        
-        @keyframes nodeFloat2 {
-            0%, 100% { transform: translateY(-50%) translateX(0px); }
-            50% { transform: translateY(-50%) translateX(5px); }
-        }
-        
-        @keyframes nodeFloat3 {
-            0%, 100% { transform: translateX(-50%) translateY(0px); }
-            50% { transform: translateX(-50%) translateY(5px); }
-        }
-        
-        @keyframes nodeFloat4 {
-            0%, 100% { transform: translateY(-50%) translateX(0px); }
-            50% { transform: translateY(-50%) translateX(-5px); }
-        }
-        
-        @keyframes connectionPulse {
-            0%, 100% { opacity: 0.6; transform: scaleX(1); }
-            50% { opacity: 1; transform: scaleX(1.2); }
-        }
-        
-        .interactive-3d-card {
-            perspective: 1000px;
-            transform-style: preserve-3d;
-        }
-        
-        .card-3d-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
-        
-        .interactive-3d-card:hover .card-3d-inner {
-            transform: rotateY(10deg) rotateX(10deg) scale(1.05);
-        }
-        
-        .holographic-effect {
-            background: linear-gradient(45deg, 
-                rgba(255, 0, 150, 0.1) 0%,
-                rgba(0, 255, 255, 0.1) 25%,
-                rgba(255, 255, 0, 0.1) 50%,
-                rgba(255, 0, 150, 0.1) 75%,
-                rgba(0, 255, 255, 0.1) 100%);
-            background-size: 400% 400%;
-            animation: hologram 3s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .holographic-effect::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: shimmer 2s linear infinite;
-        }
-        
-        @keyframes hologram {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-        
-        .cloud-3d {
-            width: 120px;
-            height: 80px;
-            position: relative;
-            animation: cloudFloat 8s ease-in-out infinite;
-            transform-style: preserve-3d;
-        }
-        
-        .cloud-base {
-            width: 80px;
-            height: 40px;
-            background: linear-gradient(135deg, #06b6d4, #0891b2);
-            border-radius: 40px;
-            position: absolute;
-            bottom: 0;
-            left: 20px;
-            box-shadow: 0 0 25px rgba(6, 182, 212, 0.4);
-        }
-        
-        .cloud-puff1 {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
-            border-radius: 50%;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
-        }
-        
-        .cloud-puff2 {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #0284c7, #0ea5e9);
-            border-radius: 50%;
-            position: absolute;
-            top: 5px;
-            left: 40px;
-            box-shadow: 0 0 20px rgba(2, 132, 199, 0.3);
-        }
-        
-        .cloud-puff3 {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #0369a1, #0284c7);
-            border-radius: 50%;
-            position: absolute;
-            top: 15px;
-            right: 10px;
-            box-shadow: 0 0 20px rgba(3, 105, 161, 0.3);
-        }
-        
-        .cloud-data {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 30px;
-        }
-        
-        .cloud-data::before,
-        .cloud-data::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 1px;
-        }
-        
-        .cloud-data::before {
-            top: 8px;
-            left: 20px;
-            animation: dataFlow1 2s ease-in-out infinite;
-        }
-        
-        .cloud-data::after {
-            top: 18px;
-            left: 20px;
-            animation: dataFlow2 2s ease-in-out infinite 0.5s;
-        }
-        
-        @keyframes cloudFloat {
-            0%, 100% { 
-                transform: rotateY(0deg) rotateX(0deg) scale(1);
-            }
-            25% { 
-                transform: rotateY(90deg) rotateX(5deg) scale(1.05);
-            }
-            50% { 
-                transform: rotateY(180deg) rotateX(0deg) scale(1);
-            }
-            75% { 
-                transform: rotateY(270deg) rotateX(-5deg) scale(1.05);
-            }
-        }
-        
-        @keyframes dataFlow1 {
-            0%, 100% { opacity: 0.4; transform: translateX(0px); }
-            50% { opacity: 1; transform: translateX(10px); }
-        }
-        
-        @keyframes dataFlow2 {
-            0%, 100% { opacity: 0.4; transform: translateX(0px); }
-            50% { opacity: 1; transform: translateX(-10px); }
-        }
-        
-        .particle-system {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(59, 130, 246, 0.6);
-            border-radius: 50%;
-            animation: particleFloat 15s linear infinite;
-        }
-        
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) translateX(0px) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px) scale(0);
-                opacity: 0;
-            }
-        }
-        
-        .glass-morphism {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-        
-        .neon-glow {
-            box-shadow: 
-                0 0 5px currentColor,
-                0 0 10px currentColor,
-                0 0 15px currentColor,
-                0 0 20px currentColor;
-            animation: neonPulse 2s ease-in-out infinite alternate;
-        }
-        
-        @keyframes neonPulse {
-            from {
-                box-shadow: 
-                    0 0 5px currentColor,
-                    0 0 10px currentColor,
-                    0 0 15px currentColor,
-                    0 0 20px currentColor;
-            }
-            to {
-                box-shadow: 
-                    0 0 10px currentColor,
-                    0 0 20px currentColor,
-                    0 0 30px currentColor,
-                    0 0 40px currentColor;
-            }
-        }
-        
-        .navbar-shadow {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            background-size: cover;
-            background-attachment: fixed;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #3b82f6, #9333ea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .parallax {
-            transform: translateZ(0);
-            will-change: transform;
-        }
-        
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .slide-in {
-            animation: slideIn 0.8s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        .underline-animation {
-            position: relative;
-        }
-        
-        .underline-animation::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(135deg, #3b82f6, #9333ea);
-            transition: width 0.3s ease;
-        }
-        
-        .underline-animation:hover::after {
-            width: 100%;
-        }
-        
-        .mobile-menu {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-        
-        .hamburger span {
-            transition: all 0.3s ease;
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-        
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-        
-        .lightbox.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .testimonial-card {
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 0.5s ease;
-        }
-        
-        .testimonial-card.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, #3b82f6, #9333ea);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #9333ea, #3b82f6);
-            transition: left 0.3s ease;
-        }
-        
-        .cta-button:hover::before {
-            left: 0;
-        }
-        
-        .cta-button span {
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Technology Image Slider Styles */
-        .tech-slider {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .tech-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: all 2s ease-in-out;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .tech-slide.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .tech-slide.prev {
-            opacity: 0;
-            transform: translateX(-100%);
-        }
-        
-        .tech-slide svg {
-            animation: techImageFloat 15s ease-in-out infinite;
-            width: 80%;
-            height: 80%;
-            max-width: 600px;
-            max-height: 400px;
-        }
-        
-        @keyframes techImageFloat {
-            0%, 100% { 
-                transform: scale(1) rotate(0deg);
-                filter: hue-rotate(0deg) brightness(1.2);
-            }
-            25% { 
-                transform: scale(1.1) rotate(2deg);
-                filter: hue-rotate(90deg) brightness(1.4);
-            }
-            50% { 
-                transform: scale(1.05) rotate(0deg);
-                filter: hue-rotate(180deg) brightness(1.3);
-            }
-            75% { 
-                transform: scale(1.1) rotate(-2deg);
-                filter: hue-rotate(270deg) brightness(1.4);
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAYANALYTICS — IT Consultancy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #ffffff;
+      --bg2:      #f5f7fb;
+      --bg3:      #eef1f7;
+      --accent:   #0052cc;
+      --accent2:  #00b894;
+      --text:     #0d1117;
+      --muted:    #5a6479;
+      --border:   rgba(0,0,0,0.08);
+      --card-bg:  rgba(0,0,0,0.025);
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 72px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { display: flex; gap: 10px; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { color: var(--text); border-color: rgba(0,0,0,0.22); }
+    .btn-primary { background: var(--accent); color: #fff; font-weight: 600; }
+    .btn-primary:hover { background: #0040a8; transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid rgba(0,0,0,0.18); }
+    .btn-outline:hover { background: rgba(0,0,0,0.04); }
+    .btn-white { background: #fff; color: var(--accent); font-weight: 700; }
+    .btn-white:hover { background: #f0f4ff; transform: translateY(-1px); }
+    .btn-white-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.45); font-weight: 600; }
+    .btn-white-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+    .btn-lg { padding: 14px 32px; font-size: 15px; border-radius: 10px; }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--muted);
+      border-radius: 2px;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 20px 5% 28px;
+      z-index: 99;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      padding: 13px 0;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-cta { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,82,204,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,82,204,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 20%, black 20%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 20%, black 20%, transparent 80%);
+    }
+    .hero-glow {
+      position: absolute; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,82,204,0.07) 0%, transparent 70%);
+      top: -100px; right: -100px; pointer-events: none;
+    }
+    .hero-glow2 {
+      position: absolute; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(0,184,148,0.07) 0%, transparent 70%);
+      bottom: 0; left: 10%; pointer-events: none;
+    }
+    .hero-inner { position: relative; max-width: 780px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,82,204,0.07);
+      border: 1px solid rgba(0,82,204,0.18);
+      color: var(--accent);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 28px;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--accent); border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.8); }
+    }
+    h1 {
+      font-family: var(--font-head);
+      font-size: clamp(40px, 6vw, 78px);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -2px; margin-bottom: 24px; color: var(--text);
+    }
+    h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub {
+      font-size: 18px; color: var(--muted); font-weight: 300;
+      max-width: 540px; margin-bottom: 40px; line-height: 1.8;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex; gap: 48px; flex-wrap: wrap;
+      margin-top: 64px; padding-top: 36px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: var(--font-head); font-size: 36px;
+      font-weight: 800; color: var(--text); letter-spacing: -1px;
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-label { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    /* ── TRUST BAR ── */
+    #trust {
+      padding: 28px 5%;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2); overflow: hidden;
+    }
+    .trust-inner { display: flex; align-items: center; gap: 40px; overflow: hidden; }
+    .trust-label {
+      font-size: 11px; color: var(--muted); font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase; white-space: nowrap;
+    }
+    .trust-logos {
+      display: flex; gap: 52px; align-items: center;
+      animation: scroll-logos 22s linear infinite; white-space: nowrap;
+    }
+    @keyframes scroll-logos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .trust-logo {
+      font-family: var(--font-head); font-size: 14px;
+      font-weight: 700; color: rgba(0,0,0,0.2); letter-spacing: -0.3px;
+    }
+
+    /* ── SHARED SECTION ── */
+    section { padding: 96px 5%; }
+    .section-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+    }
+    h2 {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 4vw, 50px);
+      font-weight: 800; letter-spacing: -1.5px;
+      line-height: 1.1; color: var(--text); margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--muted);
+      max-width: 520px; line-height: 1.8; margin-bottom: 52px;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--bg); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+    }
+    .service-card {
+      background: var(--bg2); padding: 36px 30px;
+      transition: background 0.25s; cursor: default;
+    }
+    .service-card:hover { background: var(--bg3); }
+    .service-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(0,82,204,0.07); border: 1px solid rgba(0,82,204,0.12);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 22px;
+    }
+    .service-card h3 {
+      font-family: var(--font-head); font-size: 17px; font-weight: 700;
+      color: var(--text); margin-bottom: 10px; letter-spacing: -0.3px;
+    }
+    .service-card p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+    /* ── PROCESS ── */
+    #how { background: var(--bg2); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px;
+    }
+    .step {
+      padding: 32px 28px; background: #fff;
+      border: 1px solid var(--border); border-radius: 14px;
+    }
+    .step-num {
+      font-family: var(--font-head); font-size: 52px; font-weight: 800;
+      color: rgba(0,82,204,0.09); line-height: 1;
+      margin-bottom: 14px; letter-spacing: -3px;
+    }
+    .step h3 {
+      font-family: var(--font-head); font-size: 17px; font-weight: 700;
+      color: var(--text); margin-bottom: 10px;
+    }
+    .step p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+    /* ── WHY US ── */
+    #why { background: var(--bg); }
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 22px; margin-top: 8px; }
+    .feature-item { display: flex; gap: 16px; align-items: flex-start; }
+    .feature-dot {
+      width: 20px; height: 20px; min-width: 20px;
+      background: rgba(0,82,204,0.08); border: 1px solid rgba(0,82,204,0.2);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin-top: 3px;
+    }
+    .feature-dot::after {
+      content: ''; width: 6px; height: 6px;
+      background: var(--accent); border-radius: 50%;
+    }
+    .feature-item h4 {
+      font-family: var(--font-head); font-size: 15px; font-weight: 700;
+      color: var(--text); margin-bottom: 4px;
+    }
+    .feature-item p { font-size: 14px; color: var(--muted); }
+    .visual-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px;
+    }
+    .visual-card-title {
+      font-size: 11px; color: var(--muted); font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px;
+    }
+    .metric-row {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 14px 0;
+      border-bottom: 1px solid var(--border); gap: 14px;
+    }
+    .metric-row:last-of-type { border-bottom: none; }
+    .metric-label { font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .bar-wrap { flex: 1; height: 5px; background: #e4e8f0; border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, #0052cc, #00b894); border-radius: 3px; }
+    .metric-val {
+      font-family: var(--font-head); font-size: 15px; font-weight: 700;
+      color: var(--accent); min-width: 40px; text-align: right;
+    }
+    .avail-box {
+      margin-top: 24px; padding: 18px 20px;
+      background: rgba(0,82,204,0.05); border: 1px solid rgba(0,82,204,0.12); border-radius: 10px;
+    }
+    .avail-label {
+      font-size: 10px; color: var(--accent); font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .avail-num { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--text); }
+    .avail-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--bg2); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 20px;
+    }
+    .testi-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px;
+    }
+    .stars { color: #f59e0b; font-size: 14px; margin-bottom: 14px; letter-spacing: 3px; }
+    .testi-text {
+      font-size: 15px; color: var(--text); line-height: 1.8;
+      font-style: italic; font-weight: 300; margin-bottom: 22px;
+    }
+    .testi-author { display: flex; gap: 12px; align-items: center; }
+    .avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      font-family: var(--font-head); font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .av-a { background: rgba(0,82,204,0.1); color: var(--accent); }
+    .av-b { background: rgba(0,184,148,0.1); color: #009e76; }
+    .av-c { background: rgba(239,68,68,0.1); color: #dc2626; }
+    .testi-name { font-size: 14px; font-weight: 600; color: var(--text); }
+    .testi-role { font-size: 12px; color: var(--muted); }
+
+    /* ── TECHNOLOGIES ── */
+    #tech { background: var(--bg); }
+    .tech-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tech-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 100px;
+      padding: 8px 18px; font-size: 13px; color: var(--muted); font-weight: 500;
+      transition: all 0.2s; cursor: default;
+    }
+    .tech-tag:hover { color: var(--accent); border-color: rgba(0,82,204,0.25); background: rgba(0,82,204,0.04); }
+    .tech-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.45; }
+
+    /* ── CTA BANNER ── */
+    #contact {
+      background: var(--accent); text-align: center;
+      padding: 96px 5%; position: relative; overflow: hidden;
+    }
+    #contact::before {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%); width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #contact .section-tag { color: rgba(255,255,255,0.65); position: relative; }
+    #contact h2 { color: #fff; margin-bottom: 18px; position: relative; }
+    #contact > p {
+      font-size: 17px; color: rgba(255,255,255,0.75);
+      max-width: 500px; margin: 0 auto 40px; line-height: 1.8; position: relative;
+    }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+    /* ── CONTACT FORM ── */
+    #contact-form { background: var(--bg2); }
+    .form-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: start;
+    }
+    .form-info .section-tag { margin-bottom: 14px; }
+    .form-info h3 {
+      font-family: var(--font-head); font-size: 26px; font-weight: 700;
+      color: var(--text); margin-bottom: 16px; letter-spacing: -0.5px;
+    }
+    .form-info p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
+    .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .contact-detail .icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(0,82,204,0.08); display: flex;
+      align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
+    }
+    .contact-detail span { font-size: 14px; color: var(--muted); }
+    .contact-detail a { font-size: 14px; color: var(--accent); text-decoration: none; }
+    .contact-detail a:hover { text-decoration: underline; }
+    form { display: flex; flex-direction: column; gap: 14px; }
+    form input, form select, form textarea {
+      width: 100%; padding: 12px 16px;
+      border: 1px solid var(--border); border-radius: 8px;
+      font-family: var(--font-body); font-size: 15px;
+      color: var(--text); background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+    }
+    form input:focus, form select:focus, form textarea:focus {
+      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,82,204,0.1);
+    }
+    form textarea { resize: vertical; min-height: 130px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    form button[type="submit"] {
+      background: var(--accent); color: #fff; border: none;
+      padding: 14px 32px; border-radius: 10px; font-family: var(--font-body);
+      font-size: 15px; font-weight: 600; cursor: pointer;
+      transition: background 0.2s, transform 0.2s; align-self: flex-start;
+    }
+    form button[type="submit"]:hover { background: #0040a8; transform: translateY(-1px); }
+    .form-success {
+      display: none; background: rgba(0,184,148,0.08);
+      border: 1px solid rgba(0,184,148,0.3); color: #007a60;
+      padding: 18px 22px; border-radius: 10px; font-size: 15px;
+    }
+
+    /* ── FOOTER ── */
+    footer { background: #0d1117; color: #fff; padding: 64px 5% 36px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-brand .logo { color: #fff; }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 14px; max-width: 260px; line-height: 1.8; }
+    .footer-col h5 {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      color: rgba(255,255,255,0.45); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 18px;
+    }
+    .footer-col a {
+      display: block; font-size: 14px; color: rgba(255,255,255,0.6);
+      text-decoration: none; margin-bottom: 12px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+    /* ── FADE ANIMATION ── */
+    .fade-up {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta .btn-ghost { display: none; }
+      .hamburger { display: flex; }
+      .why-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .form-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 600px) {
+      h1 { letter-spacing: -1px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; gap: 20px; }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation Bar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <h1 class="text-2xl font-bold gradient-text">KAY ANALYTICS</h1>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium underline-animation transition-colors duration-300">Home</a>
-                        <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium underline-animation transition-colors duration-300">About</a>
-                        <a href="#services" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium underline-animation transition-colors duration-300">Services</a>
-                        <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium underline-animation transition-colors duration-300">Contact</a>
-                    </div>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="hamburger flex flex-col justify-center items-center w-6 h-6 space-y-1">
-                        <span class="block w-6 h-0.5 bg-gray-700"></span>
-                        <span class="block w-6 h-0.5 bg-gray-700"></span>
-                        <span class="block w-6 h-0.5 bg-gray-700"></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-16 left-0 w-full h-screen bg-white/95 backdrop-blur-md">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-300">Home</a>
-                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-300">About</a>
-                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-300">Services</a>
-                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-300">Contact</a>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-screen flex items-center justify-center parallax relative overflow-hidden">
-        
-        <!-- Particle System -->
-        <div class="particle-system">
-            <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-            <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
-            <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
-            <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
-            <div class="particle" style="left: 50%; animation-delay: 8s;"></div>
-            <div class="particle" style="left: 60%; animation-delay: 10s;"></div>
-            <div class="particle" style="left: 70%; animation-delay: 12s;"></div>
-            <div class="particle" style="left: 80%; animation-delay: 14s;"></div>
-            <div class="particle" style="left: 90%; animation-delay: 1s;"></div>
-        </div>
-        
-        <!-- 3D IT Technology Elements -->
-        <div class="absolute top-20 left-10 floating-3d">
-            <div class="server-3d">
-                <div class="server-face front">
-                    <svg class="w-8 h-8 text-white opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
-                    </svg>
-                </div>
-                <div class="server-face back"></div>
-                <div class="server-face right"></div>
-                <div class="server-face left"></div>
-                <div class="server-face top"></div>
-                <div class="server-face bottom"></div>
-            </div>
-        </div>
-        
-        <div class="absolute top-32 right-20 floating-3d" style="animation-delay: -2s;">
-            <div class="database-3d">
-                <div class="database-cylinder">
-                    <div class="database-lines"></div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-32 left-20 floating-3d" style="animation-delay: -4s;">
-            <div class="network-3d">
-                <div class="network-center"></div>
-                <div class="network-node"></div>
-                <div class="network-node"></div>
-                <div class="network-node"></div>
-                <div class="network-node"></div>
-                <div class="network-connection connection-1"></div>
-                <div class="network-connection connection-2"></div>
-                <div class="network-connection connection-3"></div>
-                <div class="network-connection connection-4"></div>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-20 right-10 floating-3d" style="animation-delay: -1s;">
-            <div class="cloud-3d">
-                <div class="cloud-base"></div>
-                <div class="cloud-puff1"></div>
-                <div class="cloud-puff2"></div>
-                <div class="cloud-puff3"></div>
-                <div class="cloud-data"></div>
-            </div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 fade-in hover:text-yellow-300 transition-colors duration-500 cursor-default">
-                Transform Your Business with
-                <span class="block gradient-text bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent neon-glow" style="color: #fbbf24;">
-                    Smart IT Solutions
-                </span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto slide-in">
-                KAY ANALYTICS delivers cutting-edge technology consulting to drive your digital transformation and accelerate growth.
-            </p>
-            <button class="cta-button text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 holographic-effect">
-                <span>Get Started Today</span>
-            </button>
-        </div>
-    </section>
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="logo">KAY<span>ANALYTICS</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">Process</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#tech">Technologies</a></li>
+    <li><a href="#contact-form">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#testimonials" class="btn btn-ghost">Case Studies</a>
+    <a href="#contact-form" class="btn btn-primary">Get a Quote</a>
+  </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-    <!-- Technology Showcase Section -->
-    <section class="py-20 bg-gradient-to-br from-gray-900 to-blue-900 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4 neon-glow" style="color: #ffffff;">Our Technology Stack</h2>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Cutting-edge technologies powering your digital transformation</p>
-            </div>
-            
-            <!-- Sliding Technology Images -->
-            <div class="relative h-96 bg-transparent rounded-3xl overflow-hidden">
-                <div class="tech-slider">
-                    <!-- Tech Image 1 - Server Infrastructure -->
-                    <div class="tech-slide active">
-                        <svg viewBox="0 0 800 600" fill="none">
-                            <rect x="100" y="150" width="600" height="300" rx="20" fill="url(#serverGradient)" stroke="rgba(59, 130, 246, 0.8)" stroke-width="3"/>
-                            <rect x="120" y="180" width="560" height="40" rx="5" fill="rgba(59, 130, 246, 0.6)"/>
-                            <rect x="120" y="240" width="560" height="40" rx="5" fill="rgba(59, 130, 246, 0.6)"/>
-                            <rect x="120" y="300" width="560" height="40" rx="5" fill="rgba(59, 130, 246, 0.6)"/>
-                            <rect x="120" y="360" width="560" height="40" rx="5" fill="rgba(59, 130, 246, 0.6)"/>
-                            <circle cx="650" cy="200" r="8" fill="#10b981"/>
-                            <circle cx="650" cy="260" r="8" fill="#10b981"/>
-                            <circle cx="650" cy="320" r="8" fill="#f59e0b"/>
-                            <circle cx="650" cy="380" r="8" fill="#10b981"/>
-                            <text x="400" y="320" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="24" font-weight="bold">SERVER INFRASTRUCTURE</text>
-                            <defs>
-                                <linearGradient id="serverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:rgba(59, 130, 246, 0.4)"/>
-                                    <stop offset="100%" style="stop-color:rgba(147, 51, 234, 0.4)"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    
-                    <!-- Tech Image 2 - Database Network -->
-                    <div class="tech-slide">
-                        <svg viewBox="0 0 800 600" fill="none">
-                            <ellipse cx="400" cy="200" rx="150" ry="30" fill="rgba(16, 185, 129, 0.6)" stroke="rgba(16, 185, 129, 0.8)" stroke-width="3"/>
-                            <ellipse cx="400" cy="300" rx="150" ry="30" fill="rgba(16, 185, 129, 0.6)" stroke="rgba(16, 185, 129, 0.8)" stroke-width="3"/>
-                            <ellipse cx="400" cy="400" rx="150" ry="30" fill="rgba(16, 185, 129, 0.6)" stroke="rgba(16, 185, 129, 0.8)" stroke-width="3"/>
-                            <line x1="250" y1="200" x2="250" y2="400" stroke="rgba(16, 185, 129, 0.8)" stroke-width="3"/>
-                            <line x1="550" y1="200" x2="550" y2="400" stroke="rgba(16, 185, 129, 0.8)" stroke-width="3"/>
-                            <rect x="350" y="190" width="100" height="20" rx="3" fill="rgba(255, 255, 255, 0.8)"/>
-                            <rect x="350" y="290" width="100" height="20" rx="3" fill="rgba(255, 255, 255, 0.8)"/>
-                            <rect x="350" y="390" width="100" height="20" rx="3" fill="rgba(255, 255, 255, 0.8)"/>
-                            <text x="400" y="320" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="24" font-weight="bold">DATABASE SYSTEMS</text>
-                        </svg>
-                    </div>
-                    
-                    <!-- Tech Image 3 - Network Topology -->
-                    <div class="tech-slide">
-                        <svg viewBox="0 0 800 600" fill="none">
-                            <circle cx="400" cy="300" r="40" fill="rgba(147, 51, 234, 0.6)" stroke="rgba(147, 51, 234, 0.8)" stroke-width="4"/>
-                            <circle cx="200" cy="150" r="25" fill="rgba(6, 182, 212, 0.6)" stroke="rgba(6, 182, 212, 0.8)" stroke-width="3"/>
-                            <circle cx="600" cy="150" r="25" fill="rgba(6, 182, 212, 0.6)" stroke="rgba(6, 182, 212, 0.8)" stroke-width="3"/>
-                            <circle cx="200" cy="450" r="25" fill="rgba(6, 182, 212, 0.6)" stroke="rgba(6, 182, 212, 0.8)" stroke-width="3"/>
-                            <circle cx="600" cy="450" r="25" fill="rgba(6, 182, 212, 0.6)" stroke="rgba(6, 182, 212, 0.8)" stroke-width="3"/>
-                            <circle cx="100" cy="300" r="20" fill="rgba(34, 197, 94, 0.6)" stroke="rgba(34, 197, 94, 0.8)" stroke-width="3"/>
-                            <circle cx="700" cy="300" r="20" fill="rgba(34, 197, 94, 0.6)" stroke="rgba(34, 197, 94, 0.8)" stroke-width="3"/>
-                            <line x1="360" y1="300" x2="225" y2="150" stroke="rgba(147, 51, 234, 0.8)" stroke-width="3"/>
-                            <line x1="440" y1="300" x2="575" y2="150" stroke="rgba(147, 51, 234, 0.8)" stroke-width="3"/>
-                            <line x1="360" y1="300" x2="225" y2="450" stroke="rgba(147, 51, 234, 0.8)" stroke-width="3"/>
-                            <line x1="440" y1="300" x2="575" y2="450" stroke="rgba(147, 51, 234, 0.8)" stroke-width="3"/>
-                            <line x1="360" y1="300" x2="120" y2="300" stroke="rgba(147, 51, 234, 0.8)" stroke-width="3"/>
-                            <line x1="440" y1="300" x2="680" y2="300" stroke="rgba(147, 51, 234, 0.8)" stroke-width="3"/>
-                            <text x="400" y="320" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="20" font-weight="bold">NETWORK TOPOLOGY</text>
-                        </svg>
-                    </div>
-                    
-                    <!-- Tech Image 4 - Cloud Infrastructure -->
-                    <div class="tech-slide">
-                        <svg viewBox="0 0 800 600" fill="none">
-                            <path d="M200 300 Q200 250 250 250 Q300 200 350 250 Q400 200 450 250 Q500 250 500 300 Q500 350 450 350 L250 350 Q200 350 200 300 Z" fill="rgba(6, 182, 212, 0.6)" stroke="rgba(6, 182, 212, 0.8)" stroke-width="3"/>
-                            <rect x="280" y="280" width="140" height="40" rx="5" fill="rgba(255, 255, 255, 0.8)"/>
-                            <rect x="290" y="290" width="30" height="5" rx="2" fill="rgba(6, 182, 212, 0.8)"/>
-                            <rect x="330" y="290" width="40" height="5" rx="2" fill="rgba(6, 182, 212, 0.8)"/>
-                            <rect x="380" y="290" width="25" height="5" rx="2" fill="rgba(6, 182, 212, 0.8)"/>
-                            <rect x="290" y="305" width="35" height="5" rx="2" fill="rgba(6, 182, 212, 0.8)"/>
-                            <rect x="335" y="305" width="30" height="5" rx="2" fill="rgba(6, 182, 212, 0.8)"/>
-                            <rect x="375" y="305" width="35" height="5" rx="2" fill="rgba(6, 182, 212, 0.8)"/>
-                            <circle cx="150" cy="400" r="15" fill="rgba(34, 197, 94, 0.6)" stroke="rgba(34, 197, 94, 0.8)" stroke-width="3"/>
-                            <circle cx="550" cy="400" r="15" fill="rgba(34, 197, 94, 0.6)" stroke="rgba(34, 197, 94, 0.8)" stroke-width="3"/>
-                            <circle cx="650" cy="200" r="15" fill="rgba(34, 197, 94, 0.6)" stroke="rgba(34, 197, 94, 0.8)" stroke-width="3"/>
-                            <line x1="200" y1="350" x2="150" y2="385" stroke="rgba(6, 182, 212, 0.8)" stroke-width="3" stroke-dasharray="8,4"/>
-                            <line x1="500" y1="350" x2="550" y2="385" stroke="rgba(6, 182, 212, 0.8)" stroke-width="3" stroke-dasharray="8,4"/>
-                            <line x1="450" y1="250" x2="635" y2="215" stroke="rgba(6, 182, 212, 0.8)" stroke-width="3" stroke-dasharray="8,4"/>
-                            <text x="350" y="330" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="22" font-weight="bold">CLOUD INFRASTRUCTURE</text>
-                        </svg>
-                    </div>
-                    
-                    <!-- Tech Image 5 - Analytics Dashboard -->
-                    <div class="tech-slide">
-                        <svg viewBox="0 0 800 600" fill="none">
-                            <rect x="100" y="100" width="600" height="400" rx="15" fill="rgba(59, 130, 246, 0.4)" stroke="rgba(59, 130, 246, 0.8)" stroke-width="3"/>
-                            <rect x="120" y="140" width="200" height="120" rx="8" fill="rgba(16, 185, 129, 0.6)" stroke="rgba(16, 185, 129, 0.8)" stroke-width="2"/>
-                            <rect x="340" y="140" width="160" height="120" rx="8" fill="rgba(245, 158, 11, 0.6)" stroke="rgba(245, 158, 11, 0.8)" stroke-width="2"/>
-                            <rect x="520" y="140" width="160" height="120" rx="8" fill="rgba(239, 68, 68, 0.6)" stroke="rgba(239, 68, 68, 0.8)" stroke-width="2"/>
-                            <rect x="120" y="280" width="560" height="180" rx="8" fill="rgba(147, 51, 234, 0.6)" stroke="rgba(147, 51, 234, 0.8)" stroke-width="2"/>
-                            <polyline points="140,420 180,380 220,400 260,360 300,380 340,340 380,360 420,320 460,340 500,300 540,320 580,280 620,300 660,260" fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="4"/>
-                            <rect x="130" y="150" width="60" height="8" rx="2" fill="rgba(255, 255, 255, 0.8)"/>
-                            <rect x="130" y="170" width="80" height="8" rx="2" fill="rgba(255, 255, 255, 0.8)"/>
-                            <rect x="130" y="190" width="40" height="8" rx="2" fill="rgba(255, 255, 255, 0.8)"/>
-                            <circle cx="180" cy="380" r="6" fill="rgba(255, 255, 255, 0.9)"/>
-                            <circle cx="260" cy="360" r="6" fill="rgba(255, 255, 255, 0.9)"/>
-                            <circle cx="380" cy="360" r="6" fill="rgba(255, 255, 255, 0.9)"/>
-                            <circle cx="500" cy="300" r="6" fill="rgba(255, 255, 255, 0.9)"/>
-                            <circle cx="620" cy="300" r="6" fill="rgba(255, 255, 255, 0.9)"/>
-                            <text x="400" y="320" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="22" font-weight="bold">ANALYTICS DASHBOARD</text>
-                        </svg>
-                    </div>
-                </div>
-                
-                <!-- Navigation dots for tech slider -->
-                <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-                    <button onclick="showTechSlide(0)" class="tech-dot w-3 h-3 rounded-full bg-white/80 transition-all duration-300 hover:bg-white"></button>
-                    <button onclick="showTechSlide(1)" class="tech-dot w-3 h-3 rounded-full bg-white/40 transition-all duration-300 hover:bg-white"></button>
-                    <button onclick="showTechSlide(2)" class="tech-dot w-3 h-3 rounded-full bg-white/40 transition-all duration-300 hover:bg-white"></button>
-                    <button onclick="showTechSlide(3)" class="tech-dot w-3 h-3 rounded-full bg-white/40 transition-all duration-300 hover:bg-white"></button>
-                    <button onclick="showTechSlide(4)" class="tech-dot w-3 h-3 rounded-full bg-white/40 transition-all duration-300 hover:bg-white"></button>
-                </div>
-            </div>
-            
-            <!-- Technology descriptions -->
-            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6 mt-12">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Server Infrastructure</h3>
-                    <p class="text-gray-300 text-sm">High-performance server solutions with 99.9% uptime guarantee</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Database Systems</h3>
-                    <p class="text-gray-300 text-sm">Scalable database architectures for enterprise-level data management</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Network Topology</h3>
-                    <p class="text-gray-300 text-sm">Robust network designs ensuring seamless connectivity and security</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-cyan-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Cloud Infrastructure</h3>
-                    <p class="text-gray-300 text-sm">Modern cloud solutions with auto-scaling and disaster recovery</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <svg class="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Analytics Dashboard</h3>
-                    <p class="text-gray-300 text-sm">Real-time business intelligence with predictive analytics capabilities</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#how" onclick="closeMenu()">Process</a>
+  <a href="#why" onclick="closeMenu()">Why Us</a>
+  <a href="#testimonials" onclick="closeMenu()">Clients</a>
+  <a href="#tech" onclick="closeMenu()">Technologies</a>
+  <a href="#contact-form" onclick="closeMenu()">Contact</a>
+  <div class="mobile-cta">
+    <a href="#contact-form" class="btn btn-primary" onclick="closeMenu()">Get a Quote</a>
+    <a href="#testimonials" class="btn btn-outline" onclick="closeMenu()">Case Studies</a>
+  </div>
+</div>
 
-    <!-- Features Section -->
-    <section id="services" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Core Services</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive IT solutions tailored to your business needs</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature Card 1 -->
-                <div class="interactive-3d-card card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200 glass-morphism relative overflow-hidden">
-                    <div class="card-3d-inner">
-                        <!-- 3D Floating Icon -->
-                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-6 mx-auto floating-3d neon-glow" style="color: #3b82f6;">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Data Analytics</h3>
-                        <p class="text-gray-600 text-center">Transform raw data into actionable insights with our advanced analytics solutions and machine learning capabilities.</p>
-                        
-                        <!-- 3D Background Element -->
-                        <div class="absolute top-4 right-4 opacity-20">
-                            <div class="server-3d" style="width: 60px; height: 72px;">
-                                <div class="server-face front" style="width: 60px; height: 72px; background: rgba(59, 130, 246, 0.2);"></div>
-                                <div class="server-face back" style="width: 60px; height: 72px; background: rgba(59, 130, 246, 0.2);"></div>
-                                <div class="server-face right" style="width: 60px; height: 72px; background: rgba(59, 130, 246, 0.2);"></div>
-                                <div class="server-face left" style="width: 60px; height: 72px; background: rgba(59, 130, 246, 0.2);"></div>
-                                <div class="server-face top" style="width: 60px; height: 60px; background: rgba(59, 130, 246, 0.2);"></div>
-                                <div class="server-face bottom" style="width: 60px; height: 60px; background: rgba(59, 130, 246, 0.2);"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Feature Card 2 -->
-                <div class="interactive-3d-card card-hover bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl border border-green-200 glass-morphism relative overflow-hidden">
-                    <div class="card-3d-inner">
-                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6 mx-auto floating-3d neon-glow" style="color: #10b981; animation-delay: -1s;">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Cybersecurity</h3>
-                        <p class="text-gray-600 text-center">Protect your digital assets with comprehensive security solutions, threat monitoring, and compliance management.</p>
-                        
-                        <!-- 3D Background Element -->
-                        <div class="absolute top-4 right-4 opacity-20">
-                            <div class="network-3d" style="width: 60px; height: 60px;">
-                                <div class="network-center" style="width: 18px; height: 18px; background: linear-gradient(135deg, #10b981, #059669);"></div>
-                                <div class="network-node" style="width: 9px; height: 9px; background: linear-gradient(135deg, #34d399, #10b981);"></div>
-                                <div class="network-node" style="width: 9px; height: 9px; background: linear-gradient(135deg, #34d399, #10b981);"></div>
-                                <div class="network-node" style="width: 9px; height: 9px; background: linear-gradient(135deg, #34d399, #10b981);"></div>
-                                <div class="network-node" style="width: 9px; height: 9px; background: linear-gradient(135deg, #34d399, #10b981);"></div>
-                                <div class="network-connection connection-1" style="background: linear-gradient(90deg, rgba(16, 185, 129, 0.6), rgba(52, 211, 153, 0.6));"></div>
-                                <div class="network-connection connection-2" style="background: linear-gradient(90deg, rgba(16, 185, 129, 0.6), rgba(52, 211, 153, 0.6));"></div>
-                                <div class="network-connection connection-3" style="background: linear-gradient(90deg, rgba(16, 185, 129, 0.6), rgba(52, 211, 153, 0.6));"></div>
-                                <div class="network-connection connection-4" style="background: linear-gradient(90deg, rgba(16, 185, 129, 0.6), rgba(52, 211, 153, 0.6));"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Feature Card 3 -->
-                <div class="interactive-3d-card card-hover bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl border border-orange-200 glass-morphism relative overflow-hidden">
-                    <div class="card-3d-inner">
-                        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-6 mx-auto floating-3d neon-glow" style="color: #f97316; animation-delay: -2s;">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Cloud Solutions</h3>
-                        <p class="text-gray-600 text-center">Migrate to the cloud seamlessly with our expert guidance, optimization strategies, and ongoing support.</p>
-                        
-                        <!-- 3D Background Element -->
-                        <div class="absolute top-4 right-4 opacity-20">
-                            <div class="cloud-3d" style="width: 72px; height: 48px;">
-                                <div class="cloud-base" style="width: 48px; height: 24px; background: linear-gradient(135deg, #f97316, #ea580c); left: 12px;"></div>
-                                <div class="cloud-puff1" style="width: 30px; height: 30px; background: linear-gradient(135deg, #fb923c, #f97316); left: 6px; top: 6px;"></div>
-                                <div class="cloud-puff2" style="width: 36px; height: 36px; background: linear-gradient(135deg, #fdba74, #fb923c); left: 24px; top: 3px;"></div>
-                                <div class="cloud-puff3" style="width: 27px; height: 27px; background: linear-gradient(135deg, #fed7aa, #fdba74); right: 6px; top: 9px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Work Section -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Work</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Showcasing successful projects that drive business transformation</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Project 1 -->
-                <div class="interactive-3d-card group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 glass-morphism">
-                    <div class="card-3d-inner">
-                        <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center relative overflow-hidden holographic-effect">
-                            <div class="floating-3d">
-                                <svg class="w-16 h-16 text-white neon-glow" style="color: #ffffff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                            <!-- 3D Background Elements -->
-                            <div class="absolute top-2 right-2 opacity-30">
-                                <div class="server-3d" style="width: 30px; height: 36px;">
-                                    <div class="server-face front" style="width: 30px; height: 36px; background: rgba(255, 255, 255, 0.2);"></div>
-                                    <div class="server-face back" style="width: 30px; height: 36px; background: rgba(255, 255, 255, 0.2);"></div>
-                                    <div class="server-face right" style="width: 30px; height: 36px; background: rgba(255, 255, 255, 0.2);"></div>
-                                    <div class="server-face left" style="width: 30px; height: 36px; background: rgba(255, 255, 255, 0.2);"></div>
-                                    <div class="server-face top" style="width: 30px; height: 30px; background: rgba(255, 255, 255, 0.2);"></div>
-                                    <div class="server-face bottom" style="width: 30px; height: 30px; background: rgba(255, 255, 255, 0.2);"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">E-commerce Platform</h3>
-                            <p class="text-gray-600 mb-4">Complete digital transformation for retail client with 300% sales increase</p>
-                            <button onclick="openLightbox('project1')" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300 holographic-effect px-3 py-1 rounded">View More →</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="interactive-3d-card group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 glass-morphism">
-                    <div class="card-3d-inner">
-                        <div class="h-48 bg-gradient-to-br from-green-400 to-blue-600 flex items-center justify-center relative overflow-hidden holographic-effect">
-                            <div class="floating-3d" style="animation-delay: -1s;">
-                                <svg class="w-16 h-16 text-white neon-glow" style="color: #ffffff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
-                            </div>
-                            <div class="absolute bottom-2 left-2 opacity-30">
-                                <div class="database-3d" style="width: 25px; height: 30px;">
-                                    <div class="database-cylinder" style="width: 25px; height: 25px; background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Data Analytics Dashboard</h3>
-                            <p class="text-gray-600 mb-4">Real-time business intelligence solution for Fortune 500 company</p>
-                            <button onclick="openLightbox('project2')" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300 holographic-effect px-3 py-1 rounded">View More →</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="interactive-3d-card group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 glass-morphism">
-                    <div class="card-3d-inner">
-                        <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center relative overflow-hidden holographic-effect">
-                            <div class="floating-3d" style="animation-delay: -2s;">
-                                <svg class="w-16 h-16 text-white neon-glow" style="color: #ffffff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                                </svg>
-                            </div>
-                            <div class="absolute top-2 left-2 opacity-30">
-                                <div class="network-3d" style="width: 40px; height: 40px;">
-                                    <div class="network-center" style="width: 12px; height: 12px; background: rgba(255, 255, 255, 0.4);"></div>
-                                    <div class="network-node" style="width: 6px; height: 6px; background: rgba(255, 255, 255, 0.3);"></div>
-                                    <div class="network-node" style="width: 6px; height: 6px; background: rgba(255, 255, 255, 0.3);"></div>
-                                    <div class="network-node" style="width: 6px; height: 6px; background: rgba(255, 255, 255, 0.3);"></div>
-                                    <div class="network-node" style="width: 6px; height: 6px; background: rgba(255, 255, 255, 0.3);"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Security Infrastructure</h3>
-                            <p class="text-gray-600 mb-4">Enterprise-grade cybersecurity implementation with zero breaches</p>
-                            <button onclick="openLightbox('project3')" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300 holographic-effect px-3 py-1 rounded">View More →</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 4 -->
-                <div class="interactive-3d-card group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 glass-morphism">
-                    <div class="card-3d-inner">
-                        <div class="h-48 bg-gradient-to-br from-orange-400 to-red-600 flex items-center justify-center relative overflow-hidden holographic-effect">
-                            <div class="floating-3d" style="animation-delay: -3s;">
-                                <svg class="w-16 h-16 text-white neon-glow" style="color: #ffffff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                                </svg>
-                            </div>
-                            <div class="absolute bottom-2 right-2 opacity-30">
-                                <div class="cloud-3d" style="width: 36px; height: 24px;">
-                                    <div class="cloud-base" style="width: 24px; height: 12px; background: rgba(255,255,255,0.3); left: 6px;"></div>
-                                    <div class="cloud-puff1" style="width: 15px; height: 15px; background: rgba(255,255,255,0.2); left: 3px; top: 3px;"></div>
-                                    <div class="cloud-puff2" style="width: 18px; height: 18px; background: rgba(255,255,255,0.25); left: 12px; top: 1px;"></div>
-                                    <div class="cloud-puff3" style="width: 13px; height: 13px; background: rgba(255,255,255,0.2); right: 3px; top: 4px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Cloud Migration</h3>
-                            <p class="text-gray-600 mb-4">Seamless AWS migration reducing operational costs by 40%</p>
-                            <button onclick="openLightbox('project4')" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300 holographic-effect px-3 py-1 rounded">View More →</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-gradient-to-br from-gray-900 to-blue-900 relative overflow-hidden">
-        <!-- 3D Background Elements -->
-        <div class="absolute top-10 left-10 opacity-20">
-            <div class="floating-3d">
-                <div class="database-3d" style="width: 60px; height: 75px;">
-                    <div class="database-cylinder" style="width: 60px; height: 60px;"></div>
-                </div>
-            </div>
-        </div>
-        <div class="absolute top-20 right-20 opacity-20">
-            <div class="floating-3d" style="animation-delay: -2s;">
-                <div class="server-3d" style="width: 80px; height: 96px;">
-                    <div class="server-face front" style="width: 80px; height: 96px;"></div>
-                    <div class="server-face back" style="width: 80px; height: 96px;"></div>
-                    <div class="server-face right" style="width: 80px; height: 96px;"></div>
-                    <div class="server-face left" style="width: 80px; height: 96px;"></div>
-                    <div class="server-face top" style="width: 80px; height: 80px;"></div>
-                    <div class="server-face bottom" style="width: 80px; height: 80px;"></div>
-                </div>
-            </div>
-        </div>
-        <div class="absolute bottom-10 left-1/4 opacity-20">
-            <div class="floating-3d" style="animation-delay: -4s;">
-                <div class="network-3d">
-                    <div class="network-center"></div>
-                    <div class="network-node"></div>
-                    <div class="network-node"></div>
-                    <div class="network-node"></div>
-                    <div class="network-node"></div>
-                    <div class="network-connection connection-1"></div>
-                    <div class="network-connection connection-2"></div>
-                    <div class="network-connection connection-3"></div>
-                    <div class="network-connection connection-4"></div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4 neon-glow" style="color: #ffffff;">What Our Clients Say</h2>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Trusted by industry leaders worldwide</p>
-            </div>
-            
-            <div class="relative max-w-4xl mx-auto">
-                <div id="testimonial-container" class="min-h-[300px] flex items-center justify-center">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-card active text-center glass-morphism p-8 rounded-2xl">
-                        <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center hover:scale-110 transition-transform duration-300 floating-3d neon-glow" style="color: #3b82f6;">
-                            <span class="text-2xl font-bold text-white">JD</span>
-                        </div>
-                        <blockquote class="text-xl text-gray-300 mb-6 italic">
-                            "KAY ANALYTICS transformed our data infrastructure completely. Their expertise in analytics helped us increase revenue by 45% in just 6 months."
-                        </blockquote>
-                        <div class="text-white">
-                            <p class="font-semibold text-lg">John Davis</p>
-                            <p class="text-gray-400">CEO, TechCorp Solutions</p>
-                        </div>
-                        
-                        <!-- 3D Background Element -->
-                        <div class="absolute top-4 right-4 opacity-10">
-                            <div class="cloud-3d" style="width: 48px; height: 32px;">
-                                <div class="cloud-base" style="width: 32px; height: 16px; left: 8px;"></div>
-                                <div class="cloud-puff1" style="width: 20px; height: 20px; left: 4px; top: 4px;"></div>
-                                <div class="cloud-puff2" style="width: 24px; height: 24px; left: 16px; top: 2px;"></div>
-                                <div class="cloud-puff3" style="width: 18px; height: 18px; right: 4px; top: 6px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial-card text-center glass-morphism p-8 rounded-2xl">
-                        <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center hover:scale-110 transition-transform duration-300 floating-3d neon-glow" style="color: #10b981; animation-delay: -1s;">
-                            <span class="text-2xl font-bold text-white">SM</span>
-                        </div>
-                        <blockquote class="text-xl text-gray-300 mb-6 italic">
-                            "Outstanding cybersecurity implementation. Zero security incidents since deployment. Their proactive approach gives us complete peace of mind."
-                        </blockquote>
-                        <div class="text-white">
-                            <p class="font-semibold text-lg">Sarah Martinez</p>
-                            <p class="text-gray-400">CTO, Global Finance Inc</p>
-                        </div>
-                        
-                        <div class="absolute top-4 right-4 opacity-10">
-                            <div class="cube-3d" style="width: 40px; height: 40px;">
-                                <div class="cube-face front" style="width: 40px; height: 40px;"></div>
-                                <div class="cube-face back" style="width: 40px; height: 40px;"></div>
-                                <div class="cube-face right" style="width: 40px; height: 40px;"></div>
-                                <div class="cube-face left" style="width: 40px; height: 40px;"></div>
-                                <div class="cube-face top" style="width: 40px; height: 40px;"></div>
-                                <div class="cube-face bottom" style="width: 40px; height: 40px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 3 -->
-                    <div class="testimonial-card text-center glass-morphism p-8 rounded-2xl">
-                        <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full mx-auto mb-6 flex items-center justify-center hover:scale-110 transition-transform duration-300 floating-3d neon-glow" style="color: #9333ea; animation-delay: -2s;">
-                            <span class="text-2xl font-bold text-white">MJ</span>
-                        </div>
-                        <blockquote class="text-xl text-gray-300 mb-6 italic">
-                            "The cloud migration was flawless. 40% cost reduction and improved performance. KAY ANALYTICS exceeded all our expectations."
-                        </blockquote>
-                        <div class="text-white">
-                            <p class="font-semibold text-lg">Michael Johnson</p>
-                            <p class="text-gray-400">Director of IT, Enterprise Solutions</p>
-                        </div>
-                        
-                        <div class="absolute top-4 right-4 opacity-10">
-                            <div class="sphere-3d" style="width: 40px; height: 40px;"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Navigation dots -->
-                <div class="flex justify-center mt-8 space-x-2">
-                    <button onclick="showTestimonial(0)" class="testimonial-dot w-3 h-3 rounded-full bg-blue-500 transition-all duration-300 neon-glow" style="color: #3b82f6;"></button>
-                    <button onclick="showTestimonial(1)" class="testimonial-dot w-3 h-3 rounded-full bg-gray-400 transition-all duration-300"></button>
-                    <button onclick="showTestimonial(2)" class="testimonial-dot w-3 h-3 rounded-full bg-gray-400 transition-all duration-300"></button>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <button class="cta-button text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 holographic-effect">
-                    <span>Start Your Transformation</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Ready to transform your business? Let's discuss your project.</p>
-            </div>
-            
-            <div class="max-w-2xl mx-auto">
-                <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Contact Information</h3>
-                            <div class="space-y-4">
-                                <div class="flex items-center">
-                                    <svg class="w-6 h-6 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                    </svg>
-                                    <span class="text-gray-700">info@kayanalytics.com</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <svg class="w-6 h-6 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                    </svg>
-                                    <span class="text-gray-700">+1 (555) 123-4567</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <svg class="w-6 h-6 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg>
-                                    <span class="text-gray-700">New York, NY 10001</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Business Hours</h3>
-                            <div class="space-y-2 text-gray-700">
-                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                                <p>Saturday: 10:00 AM - 4:00 PM</p>
-                                <p>Sunday: Closed</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <div class="bg-white rounded-2xl max-w-2xl mx-4 p-8 relative">
-            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
-            <div id="lightbox-content">
-                <!-- Content will be dynamically inserted here -->
-            </div>
-        </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">IT Consultancy &amp; Digital Transformation</div>
+    <h1>Build systems<br/>that <em>actually</em><br/>scale.</h1>
+    <p class="hero-sub">KAYAnalytics partners with ambitious companies to architect, modernize, and operate the infrastructure and software that powers their growth.</p>
+    <div class="hero-actions">
+      <a href="#contact-form" class="btn btn-primary btn-lg">Start a Project</a>
+      <a href="#how" class="btn btn-outline btn-lg">How We Work</a>
     </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">140<span>+</span></div>
+        <div class="stat-label">Projects delivered</div>
+      </div>
+      <div>
+        <div class="stat-num">98<span>%</span></div>
+        <div class="stat-label">Client retention rate</div>
+      </div>
+      <div>
+        <div class="stat-num">12<span>yr</span></div>
+        <div class="stat-label">Industry experience</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('navbar-shadow');
-            } else {
-                navbar.classList.remove('navbar-shadow');
-            }
-        });
+<!-- TRUST BAR -->
+<div id="trust">
+  <div class="trust-inner">
+    <span class="trust-label">Trusted by</span>
+    <div class="trust-logos">
+      <span class="trust-logo">Veridian Systems</span>
+      <span class="trust-logo">Orbitex</span>
+      <span class="trust-logo">PulseAI</span>
+      <span class="trust-logo">CloudAxis</span>
+      <span class="trust-logo">Novabridge</span>
+      <span class="trust-logo">DataVault</span>
+      <span class="trust-logo">Influx Corp</span>
+      <span class="trust-logo">Veridian Systems</span>
+      <span class="trust-logo">Orbitex</span>
+      <span class="trust-logo">PulseAI</span>
+      <span class="trust-logo">CloudAxis</span>
+      <span class="trust-logo">Novabridge</span>
+      <span class="trust-logo">DataVault</span>
+      <span class="trust-logo">Influx Corp</span>
+    </div>
+  </div>
+</div>
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
-        });
+<!-- SERVICES -->
+<section id="services">
+  <span class="section-tag fade-up">What we do</span>
+  <h2 class="fade-up">End-to-end IT services<br/>for modern enterprises</h2>
+  <p class="section-sub fade-up">From strategy to execution — we cover the full technology stack so you can focus on your business.</p>
+  <div class="services-grid fade-up">
+    <div class="service-card">
+      <div class="service-icon">☁️</div>
+      <h3>Cloud Architecture</h3>
+      <p>Design and migrate to resilient, cost-optimised cloud infrastructure on AWS, Azure, or GCP — built for scale from day one.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <h3>DevOps &amp; Automation</h3>
+      <p>CI/CD pipelines, container orchestration, and infrastructure-as-code that give your teams the velocity to ship confidently.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔐</div>
+      <h3>Cybersecurity</h3>
+      <p>Comprehensive security audits, zero-trust architecture, and compliance frameworks (SOC 2, ISO 27001, GDPR) that protect your data.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3>Data &amp; Analytics</h3>
+      <p>Build data pipelines, warehouses, and dashboards that turn raw data into decisions — including ML and AI integrations.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧩</div>
+      <h3>Software Development</h3>
+      <p>Custom web and API development using modern frameworks. From MVPs to enterprise platforms, we ship high-quality code.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <h3>AI Integration</h3>
+      <p>Embed LLMs, computer vision, and predictive models into your existing workflows to automate and augment your operations.</p>
+    </div>
+  </div>
+</section>
 
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-            });
-        });
+<!-- PROCESS -->
+<section id="how">
+  <span class="section-tag fade-up">Our process</span>
+  <h2 class="fade-up">Four steps to a<br/>delivered solution</h2>
+  <p class="section-sub fade-up">A proven engagement model that keeps projects on time, on budget, and aligned to your goals.</p>
+  <div class="steps">
+    <div class="step fade-up">
+      <div class="step-num">01</div>
+      <h3>Discovery</h3>
+      <p>We map your current systems, pain points, and business objectives in a structured 1-week discovery sprint.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">02</div>
+      <h3>Architecture</h3>
+      <p>Our architects design the technical blueprint — stack choices, integrations, security posture, and a delivery roadmap.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">03</div>
+      <h3>Build &amp; Iterate</h3>
+      <p>Agile sprints with weekly demos. You see working software early and steer direction throughout delivery.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">04</div>
+      <h3>Launch &amp; Support</h3>
+      <p>We handle go-live, knowledge transfer, and ongoing support — ensuring your team owns what we build.</p>
+    </div>
+  </div>
+</section>
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+<!-- WHY US -->
+<section id="why">
+  <div class="why-inner">
+    <div class="text-side">
+      <span class="section-tag fade-up">Why KAYAnalytics</span>
+      <h2 class="fade-up">Senior engineers.<br/>Business context.</h2>
+      <p class="section-sub fade-up">We're not a body-shop. Every engagement is staffed with senior consultants who understand technology and business strategy.</p>
+      <ul class="feature-list">
+        <li class="feature-item fade-up">
+          <div class="feature-dot"></div>
+          <div>
+            <h4>Senior-only delivery teams</h4>
+            <p>No juniors on client projects. Every engineer has 7+ years of production experience.</p>
+          </div>
+        </li>
+        <li class="feature-item fade-up">
+          <div class="feature-dot"></div>
+          <div>
+            <h4>Fixed-scope, fixed-price options</h4>
+            <p>Predictable engagements with clear milestones so you're never surprised by scope creep.</p>
+          </div>
+        </li>
+        <li class="feature-item fade-up">
+          <div class="feature-dot"></div>
+          <div>
+            <h4>IP ownership guaranteed</h4>
+            <p>Everything we build is yours. Full source code handover, no lock-in, ever.</p>
+          </div>
+        </li>
+        <li class="feature-item fade-up">
+          <div class="feature-dot"></div>
+          <div>
+            <h4>24/7 support SLAs available</h4>
+            <p>Managed services and support contracts tailored to your team's availability and risk tolerance.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="visual-card fade-up">
+      <div class="visual-card-title">Project health dashboard</div>
+      <div class="metric-row">
+        <span class="metric-label">On-time delivery</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:96%"></div></div>
+        <span class="metric-val">96%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Within budget</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:94%"></div></div>
+        <span class="metric-val">94%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Client satisfaction</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:98%"></div></div>
+        <span class="metric-val">4.9/5</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">NPS score</span>
+        <div class="bar-wrap"><div class="bar-fill" style="width:90%"></div></div>
+        <span class="metric-val">+72</span>
+      </div>
+      <div class="avail-box">
+        <div class="avail-label">Current availability</div>
+        <div class="avail-num">3 slots open</div>
+        <div class="avail-sub">Next cohort starts Q3 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Testimonials carousel
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        const dots = document.querySelectorAll('.testimonial-dot');
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <span class="section-tag fade-up">Client stories</span>
+  <h2 class="fade-up">Results that speak<br/>for themselves</h2>
+  <p class="section-sub fade-up">Hear from the engineering and product leaders we've worked with.</p>
+  <div class="testi-grid">
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"KAYAnalytics migrated our entire monolith to microservices in 14 weeks. Zero downtime. The team felt like an extension of our own — senior, communicative, and genuinely invested."</p>
+      <div class="testi-author">
+        <div class="avatar av-a">SR</div>
+        <div>
+          <div class="testi-name">Suresh Rao</div>
+          <div class="testi-role">CTO, Veridian Systems</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"They built our data platform from scratch in 10 weeks. We went from zero analytics visibility to real-time dashboards that our board actually uses in meetings."</p>
+      <div class="testi-author">
+        <div class="avatar av-b">PK</div>
+        <div>
+          <div class="testi-name">Priya Kapoor</div>
+          <div class="testi-role">VP Engineering, PulseAI</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"The security audit was eye-opening. KAYAnalytics found and remediated 23 critical vulnerabilities we didn't know existed, and got us SOC 2 compliant three months ahead of schedule."</p>
+      <div class="testi-author">
+        <div class="avatar av-c">AM</div>
+        <div>
+          <div class="testi-name">Arjun Mehta</div>
+          <div class="testi-role">COO, CloudAxis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        function showTestimonial(index) {
-            testimonials.forEach((testimonial, i) => {
-                testimonial.classList.remove('active');
-                dots[i].classList.remove('bg-blue-500');
-                dots[i].classList.add('bg-gray-400');
-            });
-            
-            testimonials[index].classList.add('active');
-            dots[index].classList.remove('bg-gray-400');
-            dots[index].classList.add('bg-blue-500');
-            currentTestimonial = index;
+<!-- TECHNOLOGIES -->
+<section id="tech">
+  <span class="section-tag fade-up">Technologies</span>
+  <h2 class="fade-up">We work across<br/>the modern stack</h2>
+  <p class="section-sub fade-up">Deep expertise across cloud, infrastructure, languages, and platforms — we use the right tool for the job.</p>
+  <div class="tech-grid fade-up">
+    <span class="tech-tag"><span class="tech-dot"></span>AWS</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Google Cloud</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Azure</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Kubernetes</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Terraform</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Docker</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Python</span>
+    <span class="tech-tag"><span class="tech-dot"></span>TypeScript</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Go</span>
+    <span class="tech-tag"><span class="tech-dot"></span>React / Next.js</span>
+    <span class="tech-tag"><span class="tech-dot"></span>PostgreSQL</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Redis</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Kafka</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Apache Spark</span>
+    <span class="tech-tag"><span class="tech-dot"></span>dbt</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Snowflake</span>
+    <span class="tech-tag"><span class="tech-dot"></span>OpenAI / LLMs</span>
+    <span class="tech-tag"><span class="tech-dot"></span>GitHub Actions</span>
+    <span class="tech-tag"><span class="tech-dot"></span>ArgoCD</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Prometheus</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Grafana</span>
+    <span class="tech-tag"><span class="tech-dot"></span>Datadog</span>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="contact">
+  <span class="section-tag">Ready to build?</span>
+  <h2>Your next project<br/>starts here.</h2>
+  <p>Tell us what you're working on. We'll respond within 24 hours with a clear path forward.</p>
+  <div class="cta-actions">
+    <a href="#contact-form" class="btn btn-white btn-lg">Book a Discovery Call</a>
+    <a href="#contact-form" class="btn btn-white-outline btn-lg">Send us a Brief</a>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact-form">
+  <div class="form-grid">
+    <div class="form-info fade-up">
+      <span class="section-tag">Get in touch</span>
+      <h3>Let's talk about<br/>your project</h3>
+      <p>Whether you have a defined scope or just an idea, we're happy to explore it with you. Fill in the form and one of our senior consultants will be in touch within one business day.</p>
+      <div class="contact-detail">
+        <div class="icon">📧</div>
+        <div><span>Email: </span><a href="mailto:hello@kayanalytics.io">hello@kayanalytics.io</a></div>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">📞</div>
+        <div><span>Phone: </span><a href="tel:+918008001234">+91 800 800 1234</a></div>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">📍</div>
+        <div><span>Hyderabad, Telangana, India</span></div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <input type="text" placeholder="Your name" required />
+          <input type="email" placeholder="Work email" required />
+        </div>
+        <input type="text" placeholder="Company name" />
+        <select>
+          <option value="" disabled selected>Service you're interested in</option>
+          <option>Cloud Architecture</option>
+          <option>DevOps &amp; Automation</option>
+          <option>Cybersecurity</option>
+          <option>Data &amp; Analytics</option>
+          <option>Software Development</option>
+          <option>AI Integration</option>
+          <option>Other / Not sure yet</option>
+        </select>
+        <textarea placeholder="Tell us about your project — what are you building, what's the challenge, what's the timeline?"></textarea>
+        <button type="submit">Send message &rarr;</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        ✅ &nbsp; Thanks! We've received your message and will be in touch within one business day.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="logo">Nex<span style="color:var(--accent)">Core</span></a>
+      <p>Senior IT consultancy helping technology teams build, scale, and secure the systems that power their business.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <a href="#services">Cloud Architecture</a>
+      <a href="#services">DevOps &amp; Automation</a>
+      <a href="#services">Cybersecurity</a>
+      <a href="#services">Data &amp; Analytics</a>
+      <a href="#services">AI Integration</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="#why">Why KAYAnalytics</a>
+      <a href="#how">Our Process</a>
+      <a href="#testimonials">Case Studies</a>
+      <a href="#tech">Technologies</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <a href="mailto:hello@KAYAnalytics.io">hello@KAYAnalytics.io</a>
+      <a href="tel:+918008001234">+91 800 800 1234</a>
+      <a href="#contact-form">Get a Quote</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 KAYAnalytics Consulting. All rights reserved.</p>
+    <p>Privacy Policy &nbsp;&middot;&nbsp; Terms of Service</p>
+  </div>
+</footer>
+
+<script>
+  /* fade-up — fallback for browsers without IntersectionObserver */
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e, i) {
+        if (e.isIntersecting) {
+          setTimeout(function() { e.target.classList.add('visible'); }, i * 70);
+          obs.unobserve(e.target);
         }
+      });
+    }, { threshold: 0.08 });
+    fadeEls.forEach(function(el) { obs.observe(el); });
+  } else {
+    fadeEls.forEach(function(el) { el.classList.add('visible'); });
+  }
 
-        // Auto-rotate testimonials
-        setInterval(() => {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }, 5000);
+  /* hamburger */
+  document.getElementById('hamburgerBtn').addEventListener('click', function() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
 
-        // Lightbox functionality
-        const lightboxData = {
-            project1: {
-                title: 'E-commerce Platform Transformation',
-                content: `
-                    <h3 class="text-2xl font-bold mb-4">E-commerce Platform Transformation</h3>
-                    <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-600 rounded-lg mb-6 flex items-center justify-center">
-                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <p class="text-gray-600 mb-4">Complete digital transformation for a major retail client, implementing modern e-commerce solutions with advanced analytics and personalization features.</p>
-                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                        <li>300% increase in online sales within 6 months</li>
-                        <li>Improved user experience with 40% faster page load times</li>
-                        <li>Advanced recommendation engine increasing average order value by 25%</li>
-                        <li>Mobile-first responsive design with 95% mobile conversion rate</li>
-                    </ul>
-                `
-            },
-            project2: {
-                title: 'Data Analytics Dashboard',
-                content: `
-                    <h3 class="text-2xl font-bold mb-4">Real-time Business Intelligence Dashboard</h3>
-                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-600 rounded-lg mb-6 flex items-center justify-center">
-                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                        </svg>
-                    </div>
-                    <p class="text-gray-600 mb-4">Comprehensive business intelligence solution for Fortune 500 company, providing real-time insights across all business units.</p>
-                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                        <li>Real-time data processing from 50+ sources</li>
-                        <li>Interactive dashboards with drill-down capabilities</li>
-                        <li>Predictive analytics reducing forecasting errors by 60%</li>
-                        <li>Automated reporting saving 20 hours per week</li>
-                    </ul>
-                `
-            },
-            project3: {
-                title: 'Enterprise Security Infrastructure',
-                content: `
-                    <h3 class="text-2xl font-bold mb-4">Enterprise-Grade Security Implementation</h3>
-                    <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-600 rounded-lg mb-6 flex items-center justify-center">
-                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                        </svg>
-                    </div>
-                    <p class="text-gray-600 mb-4">Comprehensive cybersecurity overhaul for multinational corporation, implementing zero-trust architecture and advanced threat detection.</p>
-                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                        <li>Zero security breaches since implementation</li>
-                        <li>24/7 threat monitoring and response</li>
-                        <li>Multi-factor authentication across all systems</li>
-                        <li>Compliance with SOC 2, ISO 27001, and GDPR standards</li>
-                    </ul>
-                `
-            },
-            project4: {
-                title: 'Cloud Migration Success',
-                content: `
-                    <h3 class="text-2xl font-bold mb-4">Seamless AWS Cloud Migration</h3>
-                    <div class="h-48 bg-gradient-to-br from-orange-400 to-red-600 rounded-lg mb-6 flex items-center justify-center">
-                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                        </svg>
-                    </div>
-                    <p class="text-gray-600 mb-4">Complete infrastructure migration to AWS cloud, optimizing performance while significantly reducing operational costs.</p>
-                    <ul class="list-disc list-inside text-gray-600 space-y-2">
-                        <li>40% reduction in operational costs</li>
-                        <li>99.9% uptime with auto-scaling capabilities</li>
-                        <li>50% improvement in application performance</li>
-                        <li>Disaster recovery with 15-minute RTO</li>
-                    </ul>
-                `
-            }
-        };
+  /* close mobile menu when clicking outside */
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('mobileMenu');
+    var btn  = document.getElementById('hamburgerBtn');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
 
-        function openLightbox(projectId) {
-            const lightbox = document.getElementById('lightbox');
-            const content = document.getElementById('lightbox-content');
-            content.innerHTML = lightboxData[projectId].content;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close lightbox when clicking outside
-        document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLightbox();
-            }
+  /* active nav highlight on scroll */
+  var navAnchors = document.querySelectorAll('.nav-links a');
+  var pageSections = document.querySelectorAll('section[id], div[id]');
+  window.addEventListener('scroll', function() {
+    var y = window.scrollY + 90;
+    pageSections.forEach(function(s) {
+      if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
+        navAnchors.forEach(function(a) {
+          a.style.color = (a.getAttribute('href') === '#' + s.id) ? 'var(--text)' : '';
         });
+      }
+    });
+  }, { passive: true });
 
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.parallax');
-            const speed = scrolled * 0.5;
-            parallax.style.transform = `translateY(${speed}px)`;
-        });
-
-        // 3D Mouse tracking effects
-        document.addEventListener('mousemove', function(e) {
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            // Move 3D floating elements based on mouse position
-            const floatingElements = document.querySelectorAll('.floating-3d');
-            floatingElements.forEach((element, index) => {
-                const speed = (index + 1) * 0.5;
-                const x = (mouseX - 0.5) * speed * 20;
-                const y = (mouseY - 0.5) * speed * 20;
-                element.style.transform = `translate(${x}px, ${y}px)`;
-            });
-            
-            // Interactive 3D card tilt effect
-            const cards3D = document.querySelectorAll('.interactive-3d-card');
-            cards3D.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const cardCenterX = rect.left + rect.width / 2;
-                const cardCenterY = rect.top + rect.height / 2;
-                
-                const angleX = (e.clientY - cardCenterY) / 30;
-                const angleY = (cardCenterX - e.clientX) / 30;
-                
-                if (e.clientX >= rect.left && e.clientX <= rect.right && 
-                    e.clientY >= rect.top && e.clientY <= rect.bottom) {
-                    const inner = card.querySelector('.card-3d-inner');
-                    if (inner) {
-                        inner.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.02)`;
-                    }
-                }
-            });
-        });
-
-        // Reset 3D card transforms when mouse leaves
-        document.querySelectorAll('.interactive-3d-card').forEach(card => {
-            card.addEventListener('mouseleave', function() {
-                const inner = this.querySelector('.card-3d-inner');
-                if (inner) {
-                    inner.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-                }
-            });
-        });
-
-        // Enhanced particle system
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 15 + 's';
-            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-            
-            // Random colors for particles
-            const colors = ['rgba(59, 130, 246, 0.6)', 'rgba(147, 51, 234, 0.6)', 'rgba(6, 182, 212, 0.6)'];
-            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-            
-            const particleSystem = document.querySelector('.particle-system');
-            if (particleSystem) {
-                particleSystem.appendChild(particle);
-                
-                // Remove particle after animation
-                setTimeout(() => {
-                    if (particle.parentNode) {
-                        particle.parentNode.removeChild(particle);
-                    }
-                }, 15000);
-            }
-        }
-
-        // Create particles continuously
-        setInterval(createParticle, 2000);
-
-        // Technology Image Slider
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.tech-slide');
-        const totalSlides = slides.length;
-        const techDots = document.querySelectorAll('.tech-dot');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active', 'prev');
-                if (i === index) {
-                    slide.classList.add('active');
-                } else if (i === (index - 1 + totalSlides) % totalSlides) {
-                    slide.classList.add('prev');
-                }
-            });
-        }
-
-        function showTechSlide(index) {
-            // Update dots
-            techDots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.remove('bg-white/40');
-                    dot.classList.add('bg-white/80');
-                } else {
-                    dot.classList.remove('bg-white/80');
-                    dot.classList.add('bg-white/40');
-                }
-            });
-            
-            // Update slides
-            currentSlide = index;
-            showSlide(currentSlide);
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showTechSlide(currentSlide);
-        }
-
-        // Auto-advance slides every 4 seconds
-        setInterval(nextSlide, 4000);
-
-        // Initialize first slide
-        showSlide(0);
-
-        // Add active class to navigation items based on scroll position
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('text-blue-600', 'bg-blue-50');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('text-blue-600', 'bg-blue-50');
-                }
-            });
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96cd0f18238a3a36',t:'MTc1NDgwMzM4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  /* contact form */
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+</body>
 </html>
