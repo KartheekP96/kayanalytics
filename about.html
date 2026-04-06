@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Expertise &amp; About Us | Kayananalytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#42474d",
+                    "surface-container-high": "#e6e8ea",
+                    "on-surface": "#191c1e",
+                    "tertiary-container": "#002e37",
+                    "surface-variant": "#e0e3e5",
+                    "surface": "#f7f9fb",
+                    "outline-variant": "#c3c7ce",
+                    "primary": "#001629",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#4cd7f6",
+                    "on-primary-fixed": "#001d34",
+                    "background": "#f7f9fb",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary-fixed": "#cfe5ff",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#7293b6",
+                    "inverse-primary": "#a8caef",
+                    "on-tertiary-fixed": "#001f26",
+                    "outline": "#73777e",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d8dadc",
+                    "secondary": "#505f76",
+                    "on-background": "#191c1e",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-secondary-container": "#54647a",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-primary-fixed-variant": "#274969",
+                    "surface-bright": "#f7f9fb",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-fixed": "#acedff",
+                    "surface-tint": "#406182",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "primary-fixed-dim": "#a8caef",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#d0e1fb",
+                    "tertiary": "#00181e",
+                    "on-tertiary-container": "#009eb9",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed": "#d3e4fe",
+                    "primary-container": "#002b49"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Manrope"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-tertiary-fixed-dim/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-12 h-24">
+<div class="text-xl font-bold tracking-tighter text-[#001629] uppercase font-headline"><img alt="Kayanalytics Logo" class="h-12 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE4CVI8cGtThNCG1IXw9SlQHC--z3h2wJV6MQEhzgRbutejFXzKvFYMHv2lCPDALcLFoJRfAvL2CFubSa5vvhYL35ZtFBysibIsQFb1UsAzb2QmmtfwkGC36ikWal9b8yqGXSkHBUXf-sAI2n-al7FHbHkVZetu_m-Sxx1dDhDvi2MEWPq79GYHieqgmSjdZJT_jIbv7oJsg47k5jaPZoHSV0YK4BbbVovnTNIy_HmpijSw_lS0RpZaSbXrHTCjaSpD-eMg_MspRpg"/></div>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-headline tracking-tight font-medium text-slate-600 transition-all duration-300 hover:text-[#4cd7f6] scale-95 active:scale-100" href="#">Home</a>
+<a class="font-headline tracking-tight font-medium text-slate-600 transition-all duration-300 hover:text-[#4cd7f6] scale-95 active:scale-100" href="#">Services</a>
+<a class="font-headline tracking-tight font-medium text-[#4cd7f6] border-b-2 border-[#4cd7f6] pb-1 scale-95 active:scale-100" href="#">Expertise</a>
+<a class="font-headline tracking-tight font-medium text-slate-600 transition-all duration-300 hover:text-[#4cd7f6] scale-95 active:scale-100" href="#">About Us</a>
+<a class="font-headline tracking-tight font-medium text-slate-600 transition-all duration-300 hover:text-[#4cd7f6] scale-95 active:scale-100" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-headline font-medium transition-transform scale-95 active:scale-100 shadow-none hover:shadow-lg hover:shadow-primary/10">
+                Consult Experts
+            </button>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[716px] flex items-center px-12 overflow-hidden bg-surface">
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-7">
+<span class="inline-block px-4 py-1 rounded-full bg-tertiary-container text-tertiary-fixed-dim text-xs font-label font-bold tracking-widest uppercase mb-6">
+                        Architectural Insight
+                    </span>
+<h1 class="font-headline text-6xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-8 leading-[0.95]">
+                        The Science of <br/> <span class="text-on-primary-container">Strategic Precision.</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+                        We bridge the gap between complex legacy systems and future-ready digital landscapes through clinical architectural rigor and data-driven insight.
+                    </p>
+<div class="flex gap-4">
+<button class="px-8 py-4 bg-primary text-on-primary rounded-xl font-bold flex items-center gap-2 group">
+                            Explore Expertise 
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="md:col-span-5 relative">
+<div class="w-full aspect-square rounded-2xl bg-primary-container overflow-hidden relative group">
+<img alt="Consultancy Concept" class="w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:scale-110 transition-transform duration-700" data-alt="Modern architectural glass building reflecting a clear blue sky, geometric lines and high-tech corporate aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBabJtr1VoTuWZIDlGg2ZN2JH_FgKZtOSrWZJ_5w_b3x6YiiMD9tQ24WX7gdShbQlGQmMkjFUwY9XByK5pj6DqWG1j-iE7bVc2u5uFVcHbrvAARHEHPgzknYxGrgBKgGhlVPfSMnGpJwgrMVkonOv0IP-fH4Ywgq-0bNF0XlvcqtNgfzzKHmeyDzCB0Y8c3JCjCku93Hja99_ZToW_znvxGHUFW90h2iifSjXYuOADxBHk8eSAnJmrY2cW1-2HzB0nHdRJT2Qsd9YXC"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-primary to-transparent opacity-60"></div>
+<div class="absolute bottom-8 left-8 p-6 glass-effect bg-white/10 rounded-xl border border-white/10 max-w-[280px]">
+<p class="text-white font-headline text-sm italic">"Precision is the foundation of digital legacy."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expertise Grid (Bento) -->
+<section class="py-32 px-12 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20 max-w-2xl">
+<h2 class="font-headline text-4xl font-bold text-primary mb-6">Our Core Expertise</h2>
+<p class="text-on-surface-variant text-lg">Harnessing technical debt as an opportunity for architectural rebirth. We specialize in the complex, the critical, and the transformative.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+<!-- Large Card: Digital Transformation -->
+<div class="md:col-span-8 md:row-span-2 bg-surface-container-lowest rounded-xl p-12 flex flex-col justify-between group overflow-hidden relative">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl text-tertiary-fixed-dim mb-8">hub</span>
+<h3 class="font-headline text-3xl font-bold text-on-surface mb-4">Digital Transformation</h3>
+<p class="text-on-surface-variant max-w-md leading-relaxed">End-to-end ecosystem redesign focusing on cloud-native scalability, microservices architecture, and agile integration of AI-driven workflows.</p>
+</div>
+<div class="relative z-10 pt-12 flex items-center gap-6">
+<div class="flex flex-col">
+<span class="text-4xl font-black text-primary">85%</span>
+<span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">ROI Increase</span>
+</div>
+<div class="w-px h-12 bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="text-4xl font-black text-primary">4.2x</span>
+<span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Speed to Market</span>
+</div>
+</div>
+<div class="absolute -bottom-10 -right-10 opacity-5 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[300px]" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+</div>
+<!-- Small Card: Strategic IT Consulting -->
+<div class="md:col-span-4 bg-primary text-on-primary rounded-xl p-10 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-tertiary-fixed-dim mb-6">strategy</span>
+<h3 class="font-headline text-xl font-bold mb-3">Strategic Consulting</h3>
+<p class="text-on-primary-container text-sm leading-relaxed">High-level advisory for CTOs and CIOs navigating technical transitions and fiscal optimizations.</p>
+</div>
+<a class="text-tertiary-fixed-dim font-bold flex items-center gap-2 text-sm hover:underline underline-offset-4" href="#">Learn More <span class="material-symbols-outlined text-sm">north_east</span></a>
+</div>
+<!-- Small Card: Legacy Modernization -->
+<div class="md:col-span-4 bg-surface-container-highest rounded-xl p-10 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary mb-6">history_edu</span>
+<h3 class="font-headline text-xl font-bold text-primary mb-3">Legacy Modernization</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">De-risking the replacement of aging infrastructure through phased, zero-downtime migration strategies.</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Journey Section -->
+<section class="py-32 px-12 bg-surface">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="relative">
+<div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+<img alt="Our Team" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A focused group of professionals collaborating in a high-tech minimalist office space with floor-to-ceiling windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzYR7_GUs8syE5BZoaWYEaHIdXO-D6QQiyr3UNK-6Lkypx_AbGkrZiRrcao6r6O9XeuXz20cPmU2BRC01Jwvd3Do2hDLsHGnK57m7jJJljN8WHYkFDVE7N0Dj9_KjK9BbfYNbNWXfwvXD3mqFFoM8KkIa8o4ni2Di-IoFRRaRiItMIfdZ8bIbvwmcP2822e3NT7zYRGux6gOSTBqknQmxBnSZAtJez1Pp_KLtomMfigeMPeQ1vsAFrd8_yQFdUKy_q98fbF4IIdO-T"/>
+</div>
+<div class="absolute -bottom-10 -right-10 bg-primary-container p-12 rounded-xl text-on-primary hidden lg:block">
+<div class="text-5xl font-black mb-2">12+</div>
+<div class="text-sm font-label uppercase tracking-widest opacity-70">Years of Insight</div>
+</div>
+</div>
+<div>
+<h2 class="font-headline text-4xl font-bold text-primary mb-8">Our Journey</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-tertiary-fixed-dim flex items-center justify-center font-bold text-tertiary-fixed-dim">01</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface mb-2">The Inception</h4>
+<p class="text-on-surface-variant leading-relaxed">Founded on the principle that IT should not just support business, but architect its future potential. Started as a small elite advisory cell.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center font-bold text-outline">02</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface mb-2">Global Expansion</h4>
+<p class="text-on-surface-variant leading-relaxed">Scaling our architectural methodology across three continents, partnering with Fortune 500 firms to solve critical data bottlenecks.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center font-bold text-outline">03</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface mb-2">The Innovation Hub</h4>
+<p class="text-on-surface-variant leading-relaxed">Today, we lead the industry in hybrid-cloud transitions and predictive analytics frameworks for sustainable IT growth.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Leadership Team -->
+<section class="py-32 px-12 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-24">
+<h2 class="font-headline text-5xl font-extrabold text-primary mb-6">The Architects</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Visionaries with decades of collective experience in navigating the world's most complex technical challenges.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Leader 1 -->
+<div class="group">
+<div class="aspect-square bg-surface-container-highest rounded-xl mb-8 overflow-hidden relative">
+<img alt="Marcus Vane" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Professional portrait of a male executive in a navy suit, clean corporate lighting, looking confident and approachable" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHJJh9nWdsXp5FBlbQ-604TO1GCA283vCSUsfOen7sWSzH-gQo-CM5JOopOuZDIBTb3J2hizqt4z15FD397Btsom9wt9uAQNbMqM9QEbHMh9bbwP2X0BnHAr8CoPoKud1pbu9P1p5CIb7gPXH8YIqhhtF6Aimqmk6imQ9y9ULMiB3FJ8EaWxuw11HxczZR0YOdGzz9gOTISCP3XIfiZAEdALgEALMDDtb1hH2_KkhnWh-muTe7uY-gVu4kQDVZdbfN43JgYML_vuvf"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface mb-1">Marcus Vane</h3>
+<p class="text-tertiary-fixed-dim font-bold text-sm uppercase tracking-widest mb-4">Founder &amp; Chief Architect</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">Former Global Head of Infrastructure at Tier-1 Banks. Marcus brings a clinical eye to legacy modernization and ROI-focused IT spend.</p>
+</div>
+<!-- Leader 2 -->
+<div class="group">
+<div class="aspect-square bg-surface-container-highest rounded-xl mb-8 overflow-hidden relative">
+<img alt="Dr. Elena Thorne" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Professional portrait of a female executive with a warm expression, modern office setting, bright and high-end aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7mzPNdw5c3YNbOWkf73_bKrfz4YLPHai8AlvRmEPkFaRKJAp-h5T-QjcGON69DrMoO8Csy_FHB-l7nvvtoev_J45NNH2mRYlBLb64-LAjmr-lGY2ohalQE6Mj2x6kVR7RYJ6-vA-gTKVyuP-jglVy2v5s6JlTSezn5AlDE6va8mbkkdzGcxR3005-Q5E3cilVqEEyVf0eHY51d6F5wDSrcDmUXr26w0_y0OGV93DKwvFw2w47n_2w8N2zLf29LTMtrahZj10ZBm74"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface mb-1">Dr. Elena Thorne</h3>
+<p class="text-tertiary-fixed-dim font-bold text-sm uppercase tracking-widest mb-4">Head of Digital Strategy</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">PhD in Computer Science with over 15 years in AI-integrated transformation. Elena leads our strategic consulting and innovation roadmap.</p>
+</div>
+<!-- Leader 3 -->
+<div class="group">
+<div class="aspect-square bg-surface-container-highest rounded-xl mb-8 overflow-hidden relative">
+<img alt="Julian Reed" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Professional portrait of a man in a modern gray sweater, creative director style, soft focused professional studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6tEPfKsaIZsgxs9AwMHIIhHS5EipMSnhPULVCKE031liIxC3NuCEZ7urpvU1-B3SK9mrQeihGdEnEua7FkN2pw8njNWEaq2mHUrJALSO2nKU1v7TFWK-4JqSObDGJcexPveiF-eh-N7caQs_asSIqc9uYzg4EKQf3nskMqvCiMIwGMTOYCvOAiaWxKY31-MWjk52kaoValXYA32SPmOWRiRAHlnBL1fyjlVPDaTuvxPvhF-3_0juNjTLUUqeaxNyaLGskMgBu8QKX"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface mb-1">Julian Reed</h3>
+<p class="text-tertiary-fixed-dim font-bold text-sm uppercase tracking-widest mb-4">Director of Operations</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">Expert in global delivery and technical risk management. Julian ensures that our architectural visions translate into flawless operational reality.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us / ROI Focus -->
+<section class="py-32 px-12 bg-primary text-on-primary">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
+<div class="max-w-xl">
+<h2 class="font-headline text-5xl font-bold mb-8">Why Choose <br/> Architectural Insight?</h2>
+<p class="text-on-primary-container text-lg">We don't just implement software. We design the foundation for your next decade of growth.</p>
+</div>
+<div class="flex-shrink-0">
+<div class="p-8 bg-tertiary-container rounded-xl border border-tertiary-fixed-dim/20">
+<div class="text-xs font-bold uppercase tracking-widest mb-4 text-tertiary-fixed-dim">Average Project ROI</div>
+<div class="text-6xl font-black">240%</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-4">
+<div class="w-12 h-px bg-tertiary-fixed-dim"></div>
+<h4 class="font-headline font-bold text-xl">Clinical Rigor</h4>
+<p class="text-sm text-on-primary-container leading-relaxed">Our discovery process is exhaustive, ensuring every potential risk is mapped and mitigated before the first line of code is written.</p>
+</div>
+<div class="space-y-4">
+<div class="w-12 h-px bg-tertiary-fixed-dim"></div>
+<h4 class="font-headline font-bold text-xl">Fiscal Alignment</h4>
+<p class="text-sm text-on-primary-container leading-relaxed">Technical decisions are filtered through financial impact. We prioritize investments that yield measurable operational efficiencies.</p>
+</div>
+<div class="space-y-4">
+<div class="w-12 h-px bg-tertiary-fixed-dim"></div>
+<h4 class="font-headline font-bold text-xl">Future-Proofing</h4>
+<p class="text-sm text-on-primary-container leading-relaxed">We architect with a 10-year horizon, selecting technologies that are as resilient as they are innovative.</p>
+</div>
+<div class="space-y-4">
+<div class="w-12 h-px bg-tertiary-fixed-dim"></div>
+<h4 class="font-headline font-bold text-xl">Zero-Downtime</h4>
+<p class="text-sm text-on-primary-container leading-relaxed">Our modernization methodologies allow for complex system replacements without interrupting your live business flows.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 px-12 bg-surface">
+<div class="max-w-7xl mx-auto rounded-3xl bg-gradient-to-br from-primary to-primary-container p-16 md:p-24 overflow-hidden relative">
+<div class="relative z-10 text-center max-w-3xl mx-auto">
+<h2 class="font-headline text-4xl md:text-5xl font-bold text-white mb-8">Ready to architect your digital future?</h2>
+<p class="text-on-primary-container text-lg mb-12">Schedule a deep-dive consultation with our principal architects and discover the ROI of strategic precision.</p>
+<button class="bg-tertiary-fixed-dim text-primary px-10 py-4 rounded-xl font-headline font-black uppercase tracking-widest text-sm hover:scale-105 transition-transform">
+                        Start the Consultation
+                    </button>
+</div>
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[600px] absolute -right-40 -top-40" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f2f4f6] w-full py-16 px-12 border-t border-[#e0e3e5]/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-lg font-black text-[#001629] mb-6">KAYANANALYTICS</div>
+<p class="text-slate-500 font-['Manrope'] text-sm tracking-wide leading-relaxed">© 2024 Kayananalytics Private Limited. Hyderabad. <br/> Architectural Insight in IT.</p>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-primary text-sm uppercase tracking-widest">Global Insights</h5>
+<ul class="space-y-2">
+<li><a class="text-slate-500 text-sm hover:text-[#4cd7f6] transition-all" href="#">White Papers</a></li>
+<li><a class="text-slate-500 text-sm hover:text-[#4cd7f6] transition-all" href="#">Case Studies</a></li>
+<li><a class="text-slate-500 text-sm hover:text-[#4cd7f6] transition-all" href="#">Annual Reports</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-primary text-sm uppercase tracking-widest">Company</h5>
+<ul class="space-y-2">
+<li><a class="text-slate-500 text-sm hover:text-[#4cd7f6] transition-all" href="#">Careers</a></li>
+<li><a class="text-slate-500 text-sm hover:text-[#4cd7f6] transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 text-sm hover:text-[#4cd7f6] transition-all" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-bold text-primary text-sm uppercase tracking-widest">Subscribe</h5>
+<p class="text-slate-500 text-xs">Architectural updates delivered monthly.</p>
+<div class="flex gap-2">
+<input class="bg-white border-none rounded-lg px-4 py-2 text-sm w-full focus:ring-1 focus:ring-[#4cd7f6]" placeholder="Email" type="email"/>
+<button class="bg-primary text-white p-2 rounded-lg">
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

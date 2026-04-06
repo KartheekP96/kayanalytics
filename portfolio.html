@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Portfolio | Kayananalytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#eceef0",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "primary": "#001629",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "surface-container-low": "#f2f4f6",
+                    "on-tertiary-container": "#009eb9",
+                    "surface": "#f7f9fb",
+                    "on-surface": "#191c1e",
+                    "background": "#f7f9fb",
+                    "secondary": "#505f76",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary-fixed": "#d3e4fe",
+                    "primary-fixed": "#cfe5ff",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary-fixed": "#001f26",
+                    "surface-dim": "#d8dadc",
+                    "on-primary-fixed-variant": "#274969",
+                    "primary-fixed-dim": "#a8caef",
+                    "tertiary-fixed": "#acedff",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c3c7ce",
+                    "on-primary-fixed": "#001d34",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#42474d",
+                    "inverse-surface": "#2d3133",
+                    "on-primary-container": "#7293b6",
+                    "primary-container": "#002b49",
+                    "tertiary-container": "#002e37",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#406182",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#f7f9fb",
+                    "tertiary-fixed-dim": "#4cd7f6",
+                    "on-secondary-container": "#54647a",
+                    "secondary-container": "#d0e1fb",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#a8caef",
+                    "tertiary": "#00181e",
+                    "outline": "#73777e",
+                    "surface-container-highest": "#e0e3e5",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Manrope"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-effect {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #001629 0%, #002b49 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-12 h-24">
+<div class="text-xl font-bold tracking-tighter text-[#001629] uppercase font-headline">
+                Kayananalytics
+            </div>
+<div class="hidden md:flex items-center gap-8 font-label tracking-tight font-medium text-slate-600">
+<a class="hover:text-[#4cd7f6] transition-all duration-300" href="#">Home</a>
+<a class="hover:text-[#4cd7f6] transition-all duration-300" href="#">Services</a>
+<a class="hover:text-[#4cd7f6] transition-all duration-300" href="#">Expertise</a>
+<a class="text-[#4cd7f6] border-b-2 border-[#4cd7f6] pb-1" href="#">Portfolio</a>
+<a class="hover:text-[#4cd7f6] transition-all duration-300" href="#">About Us</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-medium scale-95 active:scale-100 transition-transform hover:shadow-lg">
+                Consult Experts
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-12 mb-32">
+<div class="grid grid-cols-12 gap-8 items-end">
+<div class="col-span-12 md:col-span-7">
+<span class="inline-block py-1 px-3 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold font-label uppercase tracking-widest mb-6">Case Studies</span>
+<h1 class="text-6xl md:text-8xl font-headline font-black text-on-surface tracking-tighter leading-none mb-8">
+                        Our Portfolio
+                    </h1>
+</div>
+<div class="col-span-12 md:col-span-5 pb-4">
+<p class="text-xl text-secondary font-light leading-relaxed border-l-4 border-tertiary-fixed-dim pl-6">
+                        Building the Digital Infrastructure of Hyderabad. We architect resilient systems that power the engine of Telangana's growth.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Featured Project 01: Asymmetric Bento Style -->
+<section class="max-w-7xl mx-auto px-12 mb-40">
+<div class="grid grid-cols-12 gap-12 items-center">
+<div class="col-span-12 md:col-span-8 overflow-hidden rounded-xl bg-surface-container-low">
+<img alt="Futuristic data center" class="w-full h-[600px] object-cover transition-transform duration-700 hover:scale-105" data-alt="Futuristic glowing data center interior with blue neon lights and sleek architectural server racks in a high-tech Hyderabad facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9pb1KKKGWie0Z8DVx6ubh26bo_-1p5ZgCfclN96-WskPrXx4nLnopO6FOLeMd5CULFPjNpfxU8oLB0IkEVse5Y4g79vowRwRDiJllS3jsX4s4t3Qc70WG5y-h9OwzBFoQ5_bbnefit_fsP7_Gnv4z2fM0e-YxqxmodinFfqFINAGYJ3kilVR6HMx8G7hEgkVGkeuOMpUJ9CezjilS4wiiOOQjKzPbYJpxk18QlQVz4dUMVIQKyq1mLwJmu3Syb4-sLz1_iNMDamUe"/>
+</div>
+<div class="col-span-12 md:col-span-4">
+<h3 class="text-tertiary-fixed-dim font-label font-bold text-sm tracking-[0.2em] mb-4">GOVERNMENT INFRASTRUCTURE</h3>
+<h2 class="text-4xl font-headline font-extrabold text-primary mb-6">Telangana Digital Backbone</h2>
+<p class="text-secondary leading-relaxed mb-8">
+                        The definitive foundation for e-governance. We architected a multi-redundant fiber and cloud infrastructure that supports critical state services for 35 million citizens.
+                    </p>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-surface-container-highest rounded-full text-xs font-bold text-primary">SCALE: STATE-WIDE</span>
+<span class="px-4 py-2 bg-surface-container-highest rounded-full text-xs font-bold text-primary">LATENCY: &lt;10MS</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects Grid -->
+<section class="bg-surface-container-low py-32">
+<div class="max-w-7xl mx-auto px-12">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-20">
+<h2 class="text-5xl font-headline font-black text-primary tracking-tight">Technical Milestones</h2>
+<p class="text-on-secondary-fixed-variant font-medium">Precision Engineering in HITEC City</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Project 02 -->
+<div class="group">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden mb-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+<div class="relative h-96 overflow-hidden">
+<img alt="HITEC City architecture" class="w-full h-full object-cover" data-alt="Stunning modern glass skyscraper in HITEC City Hyderabad reflecting a clear blue sky with sleek architectural lines and high-tech feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL8sTTBOelQvtL8i3E57lXCarqWFMBF-ciJVRLFTOXfq5oBhbiuq835Clh5xiWgzP2fhxUCq2I2QwkbukGsAqaRP122tjTAN9n4W7nCdJn1wwMc78nq3bpM39tOU21lqoR4WcfHz1dO-Z3_t42EmyA-U0MoSQxFx-sm5AMio1uz_jBD4OfqeKNTnPp4gHNOh7XWTff7py7W2DEghZfx3zZr268l6WNBeUQ9NEfGacm5jvxQrsW6F4l4lkamV_kHHylVIjfhNc6boyE"/>
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-primary/0 transition-colors duration-500"></div>
+</div>
+<div class="p-10">
+<div class="flex justify-between items-start mb-6">
+<h3 class="text-3xl font-headline font-bold text-primary">HITEC City Data Hub</h3>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-4xl">cloud_done</span>
+</div>
+<p class="text-secondary mb-8 leading-relaxed">
+                                    Scalable cloud solutions for global tech giants. Designing the private cloud clusters that host the R&amp;D centers for the world's leading technology firms.
+                                </p>
+<a class="inline-flex items-center text-on-primary-container font-bold group" href="#">
+<span class="border-b-2 border-tertiary-fixed-dim pb-1">View Architecture</span>
+<span class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-2">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 03 -->
+<div class="group">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden mb-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+<div class="relative h-96 overflow-hidden">
+<img alt="Financial data visualization" class="w-full h-full object-cover" data-alt="Digital blue dashboard screens displaying financial data migrations and complex node connections in a dark room aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYq19SrkUmU3p6Bp7Z3yzEKYA6XH7Wgh9yRdtykg6TeI7RxiYX-FOpZtJFL06RrjL-3hrOtMqLdBvZfm8JB6CbOLA2vVWu7P1gFt8UW1JRvboC0OfeJIh1YikRnpzY9F5P-DrLS15rVFfjGemiA_fkDPKHqbiRXNPy5UzlPWCLrFXGfhMoXtUAuqqBkSbqNa6P0w57ZKDJLvt-NXLPUneR7wOdDA0JvQHVjLAKFBVPqRLEYKvSFl1vNt2inJkU7QuomKdK0bft3L0j"/>
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-primary/0 transition-colors duration-500"></div>
+</div>
+<div class="p-10">
+<div class="flex justify-between items-start mb-6">
+<h3 class="text-3xl font-headline font-bold text-primary">Cyber Gateway Migration</h3>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-4xl">account_balance</span>
+</div>
+<p class="text-secondary mb-8 leading-relaxed">
+                                    Modernizing legacy financial systems for the digital age. Seamlessly migrating core banking workloads to secure, compliant hybrid cloud environments.
+                                </p>
+<a class="inline-flex items-center text-on-primary-container font-bold group" href="#">
+<span class="border-b-2 border-tertiary-fixed-dim pb-1">Review Systems</span>
+<span class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-2">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section (Signature Texture) -->
+<section class="max-w-7xl mx-auto px-12 -mt-20 relative z-10">
+<div class="signature-gradient rounded-xl p-16 text-white grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+<div>
+<h4 class="text-tertiary-fixed-dim text-6xl font-headline font-black mb-2">500TB+</h4>
+<p class="font-label text-white/70 tracking-widest text-sm font-medium uppercase">Daily Data Throughput</p>
+</div>
+<div>
+<h4 class="text-tertiary-fixed-dim text-6xl font-headline font-black mb-2">99.99%</h4>
+<p class="font-label text-white/70 tracking-widest text-sm font-medium uppercase">Infrastructure Uptime</p>
+</div>
+<div>
+<h4 class="text-tertiary-fixed-dim text-6xl font-headline font-black mb-2">45+</h4>
+<p class="font-label text-white/70 tracking-widest text-sm font-medium uppercase">Enterprise Deployments</p>
+</div>
+</div>
+</section>
+<!-- Regional Expertise Section -->
+<section class="max-w-7xl mx-auto px-12 py-40">
+<div class="grid grid-cols-12 gap-12 items-center">
+<div class="col-span-12 md:col-span-5">
+<h2 class="text-5xl font-headline font-black text-primary mb-8 tracking-tight">The Architectural Edge</h2>
+<p class="text-lg text-secondary mb-12">We don't just deploy technology; we design the future landmarks of Hyderabad's digital skyline. Our approach integrates local operational knowledge with global architectural standards.</p>
+<ul class="space-y-6">
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">check_circle</span>
+<span class="font-bold text-primary">Localized Cloud Residency Compliance</span>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">check_circle</span>
+<span class="font-bold text-primary">Ultra-High Speed Interconnects</span>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">check_circle</span>
+<span class="font-bold text-primary">Tier IV Standard Datacenter Designs</span>
+</li>
+</ul>
+</div>
+<div class="col-span-12 md:col-span-7">
+<div class="grid grid-cols-2 gap-4">
+<div class="rounded-xl overflow-hidden h-80">
+<img alt="Hyderabad cityscape" class="w-full h-full object-cover" data-alt="Futuristic night view of Hyderabad cityscape with neon lights and cybernetic architectural aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ZVeQawpYByQLTWXIOraDChQZ-ze82Ho3uvoa9V7QrjqqMbqEgF1wNvkPmJ8G7lXQDxGPVZ-4LqQYi8kIvt69V-AMAXd_BF35i2iU1WRI2Df-HgY5nOrQGUdFwBqVJEZcJV1fGERYjEsKpP_z3mdRvo9ibWtDaK5q0EuEgQeEnqL_Y3xh473Zzj8KC3PAUwOOE99qjGpIgRJc_-VU10r5LO3PPHQKpj02eHD6wh9sLdfyAsS91VSi8g8gpAKYIHVLuOL8f9S-Fz3U"/>
+</div>
+<div class="rounded-xl overflow-hidden h-80 mt-12">
+<img alt="Coding abstract" class="w-full h-full object-cover" data-alt="Abstract glowing computer code lines in deep blue and cyan flowing like digital streams through an architectural space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS1jwXLkxtBCEMu8kLHZJLWSUylIWm8wmp2ke9F7ri3YAkPykiFd3FhM-ENJaOs_3gB_0ukgU6O7JHOMXA4pUZTBKkdze_09yEjZDVJynO_Uz2LXsfVRGPeu3P5XeH9iWWPGRmE1RY6jXONLhrbM0SHzBW3uwl-VH-y7iQ-OJ4Ueg8ijxW4AAMSO5m_LyYUXd5U31wy5VfATgMTI7yS6qsMqL-pmd_Rb1V9oYvu1O_Nm70aPtqBV_hf3Rc_j-NP5vmdvxdSsGnLII2"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f2f4f6] border-t border-[#e0e3e5]/20 py-16 px-12">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="text-lg font-black text-[#001629] uppercase mb-6">
+                        Kayananalytics
+                    </div>
+<p class="text-slate-500 text-sm leading-relaxed">
+                        Architecting digital resilience for the future of enterprise technology in the heart of Cyberabad.
+                    </p>
+</div>
+<div>
+<h5 class="text-primary font-bold mb-6 font-headline">Company</h5>
+<ul class="space-y-4 font-body text-sm tracking-wide">
+<li><a class="text-slate-500 hover:text-[#4cd7f6] transition-opacity" href="#">About Us</a></li>
+<li><a class="text-slate-500 hover:text-[#4cd7f6] transition-opacity" href="#">Careers</a></li>
+<li><a class="text-slate-500 hover:text-[#4cd7f6] transition-opacity" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 hover:text-[#4cd7f6] transition-opacity" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-primary font-bold mb-6 font-headline">Portfolio</h5>
+<ul class="space-y-4 font-body text-sm tracking-wide">
+<li><a class="text-slate-500 hover:text-[#4cd7f6] transition-opacity" href="#">Digital Backbone</a></li>
+<li><a class="text-slate-500 hover:text-[#4cd7f6] transition-opacity" href="#">Cloud Migration</a></li>
+<li><a class="text-slate-500 hover:text-[#4cd7f6] transition-opacity" href="#">Data Hubs</a></li>
+<li><a class="text-slate-500 hover:text-[#4cd7f6] transition-opacity" href="#">Global Insights</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-primary font-bold mb-6 font-headline">Contact</h5>
+<p class="text-slate-500 text-sm mb-4">HITEC City Phase II, Hyderabad, India</p>
+<p class="text-slate-500 text-sm">consult@kayananalytics.com</p>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-slate-500 text-sm font-body tracking-wide">
+                    © 2024 Kayananalytics Private Limited. Architectural Insight in IT.
+                </div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-400 hover:text-[#4cd7f6] cursor-pointer">share</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-[#4cd7f6] cursor-pointer">public</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-[#4cd7f6] cursor-pointer">rss_feed</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
